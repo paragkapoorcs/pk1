@@ -28,7 +28,7 @@ explore: forecast {
 
 explore: inventory {
   join: product {
-    type: left_outer
+    type: full_outer
     sql_on: ${inventory.product_id} = ${product.product_id} ;;
     relationship: many_to_one
   }
