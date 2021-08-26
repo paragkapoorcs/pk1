@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image2.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+## ![horizontal line](.//media/image2.png)
 
 **Terraform POC**
 
@@ -32,14 +32,14 @@ Organization: Cloudsufi
 **Step1**: Login to cloud console page and create/validate the project
 ID and Access.
 
-![](.//media/image4.png){width="6.5in" height="4.166666666666667in"}
+![](.//media/image4.png)
 
 **Step2:** Validate the access in IAM to execute the creation of
 resources from terraform , Namely service account will execute the task.
 
 **Step3**: Create CDF instance using Terraform
 
-![](.//media/image6.png){width="6.5in" height="1.8611111111111112in"}
+![](.//media/image6.png)
 
 **Step4:** Login to github and configure the main.tf file and commit
 changes to terraform cloud. The code will be deployed to google cloud
@@ -76,21 +76,20 @@ xxxxxxxxxxxxxxxxxxxxxxxx
 **Step6**: Create a file .tfvars for configuring the service account,
 Project and KEY Details.
 
-![](.//media/image1.png){width="6.5in" height="3.4027777777777777in"}
+![](.//media/image1.png)
 
 **Step7: Commit the changes in github ,Which is integrated with
 terraform cloud**
 
-![](.//media/image3.png){width="6.5in" height="5.861111111111111in"}
+![](.//media/image3.png)
 
 **Step8:** Execute the code using terraform apply
 
-![](.//media/image5.png){width="6.5in" height="2.7916666666666665in"}
+![](.//media/image5.png)
 
 **Step9**: Code executed successfully and CDF instance is created.
 
-![](.//media/image8.png){width="4.680555555555555in"
-height="4.347222222222222in"}
+![](.//media/image8.png)
 
 **Observations:**
 
