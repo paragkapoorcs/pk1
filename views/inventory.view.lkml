@@ -101,6 +101,22 @@ view: inventory {
     drill_fields: [detail*]
   }
 
+
+# New Created Measures
+
+  measure: inventory_value {
+    type: number
+    value_format_name: percent_2
+    sql: ${inventory_quantity} * ${product.product_cost};;
+
+  }
+
+  measure: total_inventory_value {
+    type: number
+    value_format_name: usd
+    sql: ${inventory_value};;
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
@@ -112,4 +128,5 @@ view: inventory {
       location.location_name
     ]
   }
+
 }
