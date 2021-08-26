@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image1.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+## ![horizontal line](.//media/image1.png)
 
 **Terraform POC**
 
@@ -29,12 +29,11 @@ Organization: Google
 
 **Step1**: Login to cloud console and validate the datafusion name.
 
-![](.//media/image2.png){width="6.5in" height="1.5694444444444444in"}
+![](.//media/image2.png)
 
 **Step2**: Create Namespace ex-scmtwin
 
-![](.//media/image7.png){width="5.161458880139983in"
-height="4.470705380577428in"}
+![](.//media/image7.png)
 
 **Step3: 1).**Create a script for namespace creation (main.tf)
 
@@ -77,7 +76,7 @@ height="4.470705380577428in"}
 
 **Step4:** Run the scripts from the gcloud sdk.
 
-![](.//media/image3.png){width="6.5in" height="1.2777777777777777in"}
+![](.//media/image3.png)
 
 Files to be validated during the procedure.
 
@@ -101,19 +100,19 @@ Files to be validated during the procedure.
 
 1). Terraform init
 
-![](.//media/image5.png){width="6.5in" height="4.847222222222222in"}
+![](.//media/image5.png)
 
 2). Terraform plan
 
-![](.//media/image8.png){width="6.5in" height="1.6944444444444444in"}
+![](.//media/image8.png)
 
 3). Terraform apply
 
-![](.//media/image6.png){width="6.5in" height="2.4027777777777777in"}
+![](.//media/image6.png)
 
 Verify as below
 
-![](.//media/image4.png){width="6.5in" height="5.055555555555555in"}
+![](.//media/image4.png)
 
 **Observations:**
 
