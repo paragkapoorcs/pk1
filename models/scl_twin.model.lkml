@@ -65,3 +65,10 @@ explore: order {
 }
 
 explore: product {}
+
+##Below is the join condition to join public weather data to private data. Join on location id and date
+#join: store_weather {
+#  relationship: many_to_one
+#  sql_on: ${transactions.transaction_date} = ${store_weather.weather_date}
+#    AND ${transactions.store_id} = ${store_weather.store_id};;
+#}
