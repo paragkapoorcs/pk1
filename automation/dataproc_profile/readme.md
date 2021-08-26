@@ -29,7 +29,7 @@ Organization: Google
 
 **Step1**: Login to cloud console and validate the datafusion name.
 
-![](.//media/image2.png){width="6.5in" height="1.5694444444444444in"}
+![](.//media/image2.png)
 
 **Step2: 1).**Create a script for namespace creation (main.tf)
 
@@ -88,7 +88,7 @@ Organization: Google
 
 **Step3:** Run the scripts from the gcloud sdk.
 
-![](.//media/image3.png){width="6.5in" height="0.75in"}
+![](.//media/image3.png)
 
 Files to be validated during the procedure.
 
@@ -112,19 +112,19 @@ Files to be validated during the procedure.
 
 1). Terraform init
 
-![](.//media/image7.png){width="6.5in" height="2.8333333333333335in"}
+![](.//media/image7.png)
 
 2). Terraform plan
 
-![](.//media/image4.png){width="6.5in" height="2.875in"}
+![](.//media/image4.png)
 
 3). Terraform apply
 
-![](.//media/image6.png){width="6.5in" height="3.5833333333333335in"}
+![](.//media/image6.png)
 
 Verify as below
 
-![](.//media/image5.png){width="6.5in" height="2.625in"}
+![](.//media/image5.png)
 
 **Observations:**
 
