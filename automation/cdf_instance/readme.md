@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image2.png)
+## ![horizontal line](https://user-images.githubusercontent.com/83000158/130977400-28ad5d4c-ab1f-4a9b-abe3-6d1e703c7565.png)
 
 **Terraform POC**
 
