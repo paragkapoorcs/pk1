@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image1.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+## ![horizontal line](.//media/image1.png)
 
 **Terraform POC**
 
