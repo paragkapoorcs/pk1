@@ -1,5 +1,5 @@
 view: forecast {
-  sql_table_name: `scl_canonical.forecast`
+  sql_table_name: `scl_twin.@{FACT_DATASET}.forecast`
     ;;
 
   dimension_group: forecast {

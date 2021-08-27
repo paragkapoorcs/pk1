@@ -1,5 +1,5 @@
 view: product {
-  sql_table_name: `scl_canonical.product`
+  sql_table_name: `scl_twin.@{DIM_DATASET}..product`
     ;;
   drill_fields: [product_id]
 
@@ -189,7 +189,7 @@ view: product {
   dimension: uid {
     type: string
     description: "Unique identifier for the record"
-    sql: ${TABLE}.uid ;;
+    sql: ${TABLE}.uuid ;;
   }
 
   dimension_group: valid_from {

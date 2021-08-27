@@ -1,5 +1,5 @@
 view: location {
-  sql_table_name: `scl_canonical.location`
+  sql_table_name: `scl_twin.@{DIM_DATASET}.location`
     ;;
   drill_fields: [location_id]
 
@@ -73,7 +73,7 @@ view: location {
     sql: ${TABLE}.district ;;
   }
 
-  dimension: geo_lattitude {
+  dimension: geo_latitude {
     type: string
     description: "Lattitude to locate on the map"
     sql: ${TABLE}.geo_lattitude ;;
@@ -211,6 +211,12 @@ view: location {
     type: string
     description: "Working Hours to plan transport activities"
     sql: ${TABLE}.working_hour ;;
+  }
+
+  dimension: location {
+    type: location
+    sql_latitude: ${TABLE}.geo_lattitude ;;
+    sql_longitude: ${TABLE}.geo_longitude ;;
   }
 
   measure: count {

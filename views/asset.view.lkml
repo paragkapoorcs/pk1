@@ -1,5 +1,6 @@
 view: asset {
-  sql_table_name: `scl_canonical.asset`
+  #sql_table_name: `scl_canonical.asset`
+  sql_table_name: `scl_twin.@{DIM_DATASET}.asset`
     ;;
   drill_fields: [asset_id]
 

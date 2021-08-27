@@ -1,5 +1,5 @@
 view: legal_entity {
-  sql_table_name: `scl_canonical.legal_entity`
+  sql_table_name: `scl_twin.@{DIM_DATASET}..legal_entity`
     ;;
   drill_fields: [legal_entity_id]
 

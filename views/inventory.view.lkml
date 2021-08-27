@@ -1,5 +1,5 @@
 view: inventory {
-  sql_table_name: `scl_canonical.inventory`
+  sql_table_name: `scl_twin.@{DIM_DATASET}.inventory`
     ;;
 
   dimension: batch_number {

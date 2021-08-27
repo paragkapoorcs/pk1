@@ -38,6 +38,12 @@ explore: inventory {
     sql_on: ${inventory.location_id} = ${location.location_id} ;;
     relationship: many_to_one
   }
+  join: location_weather {
+    type: left_outer
+    sql_on:  ${inventory.inventory_date} = ${location_weather.weather_date}
+      AND ${inventory.location_id} = ${location_weather.location_id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: legal_entity {}
@@ -62,9 +68,18 @@ explore: order {
     sql_on: ${order.product_id} = ${product.product_id} ;;
     relationship: many_to_one
   }
+
+  join: location_weather {
+    type: left_outer
+    sql_on:  ${order.requested_delivery_date} = ${location_weather.weather_date}
+    AND ${order.location_id} = ${location_weather.location_id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: product {}
+
+explore: location_weather {}
 
 ##Below is the join condition to join public weather data to private data. Join on location id and date
 #join: store_weather {

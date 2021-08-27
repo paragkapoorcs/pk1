@@ -3,7 +3,7 @@
 view: weather_raw {
   derived_table: {
    # datagroup_trigger: daily
-    partition_keys: ["date"]
+   # partition_keys: ["date"]
     # requires ID, latitude, longitude columns in stores table
     # TO DO: update DATE_ADD(,+1 YEAR) with 2020 table once available in BQ public dataset
     sql: SELECT id,date,element,value,mflag,qflag,sflag,time FROM `bigquery-public-data.ghcn_d.ghcnd_202*`
@@ -17,7 +17,7 @@ view: weather_raw {
 view: weather_pivoted {
   derived_table: {
    # datagroup_trigger: daily
-    partition_keys: ["date"]
+    #partition_keys: ["date"]
     # requires ID, latitude, longitude columns in stores table
     # TO DO: update DATE_ADD(,+1 YEAR) with 2020 table once available in BQ public dataset
     sql: SELECT date,id
@@ -103,23 +103,23 @@ view: weather_pivoted {
 view: distances {
   derived_table: {
     #datagroup_trigger: daily
-    sql: SELECT stores.id as store_id --Location ID
+    sql: SELECT location.location_id as location_id --Location ID
         ,stations.id AS station_id
-        ,ST_DISTANCE(ST_GEOGPOINT(stores.longitude,stores.latitude),ST_GEOGPOINT(stations.longitude,stations.latitude)) as dist --Replace store lat and long with private data lat and long
-        FROM ${stores.SQL_TABLE_NAME} stores  --This is the dimension table for location
+        ,ST_DISTANCE(ST_GEOGPOINT(location.geo_longitude,location.geo_lattitude),ST_GEOGPOINT(stations.longitude,stations.latitude)) as dist --Replace store lat and long with private data lat and long
+        FROM ${location.SQL_TABLE_NAME} location  --This is the dimension table for location
         CROSS JOIN `bigquery-public-data.ghcn_d.ghcnd_stations` stations ;;
   }
 }
 ##############################
-view: store_weather {
-  label: "Store Weather ⛅"
+view: location_weather {
+  label: "Location Weather ⛅"
   derived_table: {
-    datagroup_trigger: daily
-    partition_keys: ["date"]
-    cluster_keys: ["store_id"]
+   # datagroup_trigger: daily
+   # partition_keys: ["date"]
+    #cluster_keys: ["location_id"]
     # requires ID, latitude, longitude columns in stores table
     # TO DO: update DATE_ADD(,+1 YEAR) with 2020 table once available in BQ public dataset
-    sql: SELECT distances.store_id
+    sql: SELECT distances.location_id
           ,weather_pivoted.date
           ,AVG(distances.dist/1000) AS average_distance_to_weather_stations_km
           ,AVG(TMAX) AS TMAX
@@ -198,7 +198,7 @@ view: store_weather {
         FROM ${distances.SQL_TABLE_NAME} distances
         JOIN ${weather_pivoted.SQL_TABLE_NAME} weather_pivoted
           ON distances.station_id = weather_pivoted.id
-        WHERE distances.dist < 30000
+        WHERE distances.dist < 30000 --Private locations mapped to public weather stations within set miles
         GROUP BY 1,2;;
   }
 
@@ -406,10 +406,10 @@ view: store_weather {
     sql: ${TABLE}.SNWD ;;
   }
 
-  dimension: store_id {
+  dimension: location_id {
     hidden: yes
     type: number
-    sql: ${TABLE}.store_id ;;
+    sql: ${TABLE}.location_id ;;
   }
 
   dimension: sx31 {
@@ -676,8 +676,18 @@ view: store_weather {
     hidden: yes
     primary_key: yes
     type: string
-    sql: CONCAT(CAST(${weather_date} AS STRING),'-',CAST(${store_id} AS STRING)) ;;
+    sql: CONCAT(CAST(${weather_date} AS STRING),'-',CAST(${location_id} AS STRING)) ;;
   }
+
+###Measures###
+  measure: temperature_rating {
+    type: number
+    sql: CASE WHEN ${average_max_temparature}<=10 THEN 0 --Cold
+    WHEN ${average_max_temparature}<=20 THEN 1 --Warm
+    WHEN ${average_max_temparature}>20 THEN 2 --Hot
+    END;;
+  }
+
 
   ##### MEASURES #####
 
