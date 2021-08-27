@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image1.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+## ![horizontal line](.//media/image1.png)
 
 **Terraform POC**
 
@@ -30,7 +30,7 @@ Organization: Google
 **Step1**: Login to the cloud console and check SQL Workspace under
 BigQuery.
 
-![](.//media/image3.png){width="6.5in" height="5.888888888888889in"}
+![](.//media/image3.png)
 
 **Step2**: Create Dataset scm_dataset
 
@@ -94,7 +94,7 @@ BigQuery.
 
 **Step4:** Run the scripts from the gcloud sdk.
 
-![](.//media/image4.png){width="6.5in" height="0.7638888888888888in"}
+![](.//media/image4.png)
 
 Files to be validated during the procedure.
 
@@ -114,19 +114,19 @@ Files to be validated during the procedure.
 
 1). Terraform init
 
-![](.//media/image5.png){width="6.5in" height="2.861111111111111in"}
+![](.//media/image5.png)
 
 2). Terraform plan
 
-![](.//media/image6.png){width="6.5in" height="4.125in"}
+![](.//media/image6.png)
 
 3). Terraform apply
 
-![](.//media/image7.png){width="6.5in" height="5.194444444444445in"}
+![](.//media/image7.png)
 
 Verify as below
 
-![](.//media/image2.png){width="6.5in" height="6.583333333333333in"}
+![](.//media/image2.png)
 
 **Observations:**
 
