@@ -1,10 +1,17 @@
 view: location {
-  sql_table_name: `scl_twin.@{DIM_DATASET}.location`
+  sql_table_name: `dev-cs-1.scl_demo.location`
     ;;
   drill_fields: [location_id]
 
-  dimension: location_id {
+  dimension: location_uid {
     primary_key: yes
+    type: string
+    description: "Location ID is unique ID of particular location type"
+    sql: ${TABLE}.location_uid ;;
+  }
+
+ dimension: location_id {
+  #  primary_key: yes
     type: string
     description: "Location ID is unique ID of particular location type"
     sql: ${TABLE}.location_id ;;
@@ -73,7 +80,7 @@ view: location {
     sql: ${TABLE}.district ;;
   }
 
-  dimension: geo_latitude {
+  dimension: geo_lattitude {
     type: string
     description: "Lattitude to locate on the map"
     sql: ${TABLE}.geo_lattitude ;;

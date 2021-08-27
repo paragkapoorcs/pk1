@@ -1,10 +1,17 @@
 view: legal_entity {
-  sql_table_name: `scl_twin.@{DIM_DATASET}..legal_entity`
+  sql_table_name: `dev-cs-1.scl_demo.legal_entity`
     ;;
   drill_fields: [legal_entity_id]
 
-  dimension: legal_entity_id {
+  dimension: legal_entity_uid {
     primary_key: yes
+    type: string
+    description: "Legal Entity Unique ID for a particular type of Legal Entity"
+    sql: ${TABLE}.legal_entity_uid ;;
+  }
+
+  dimension: legal_entity_id {
+  #  primary_key: yes
     type: string
     description: "Legal Entity Unique ID for a particular type of Legal Entity"
     sql: ${TABLE}.legal_entity_id ;;

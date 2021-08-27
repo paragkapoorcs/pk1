@@ -1,10 +1,17 @@
 view: product {
-  sql_table_name: `scl_twin.@{DIM_DATASET}..product`
+  sql_table_name: `dev-cs-1.scl_demo.product`
     ;;
   drill_fields: [product_id]
 
-  dimension: product_id {
+  dimension: product_uid {
     primary_key: yes
+    type: string
+    description: "Product ID is unique Identifier for the Product"
+    sql: ${TABLE}.product_uid ;;
+  }
+
+  dimension: product_id {
+  #  primary_key: yes
     type: string
     description: "Product ID is unique Identifier for the Product"
     sql: ${TABLE}.product_id ;;

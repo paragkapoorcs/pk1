@@ -1,5 +1,5 @@
 view: inventory {
-  sql_table_name: `scl_twin.@{DIM_DATASET}.inventory`
+  sql_table_name: `dev-cs-1.scl_demo.inventory`
     ;;
 
   dimension: batch_number {
@@ -70,18 +70,18 @@ view: inventory {
     sql: ${TABLE}.inventory_type ;;
   }
 
-  dimension: location_id {
+  dimension: location_uid {
     type: string
     description: "Location ID"
     # hidden: yes
-    sql: ${TABLE}.location_id ;;
+    sql: ${TABLE}.location_uid ;;
   }
 
-  dimension: product_id {
+  dimension: product_uid {
     type: string
     description: "Product ID"
     # hidden: yes
-    sql: ${TABLE}.product_id ;;
+    sql: ${TABLE}.product_uid ;;
   }
 
   dimension: remaining_shelf_life {
