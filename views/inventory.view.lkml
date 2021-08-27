@@ -102,9 +102,9 @@ view: inventory {
   }
 
 
-# New Created Measures
+# New Created fields
 
-  measure: inventory_value {
+  dimension: inventory_value {
     type: number
     value_format_name: percent_2
     sql: ${inventory_quantity} * ${product.product_cost};;
@@ -112,7 +112,7 @@ view: inventory {
   }
 
   measure: total_inventory_value {
-    type: number
+    type: sum
     value_format_name: usd
     sql: ${inventory_value};;
   }
