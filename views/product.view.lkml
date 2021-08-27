@@ -1,5 +1,5 @@
 view: product {
-  sql_table_name: `scl_twin.@{DIM_DATASET}.product`
+  sql_table_name: `scl_twin.@{DIM_DATASET}..product`
     ;;
   drill_fields: [product_id]
 
