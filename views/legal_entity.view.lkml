@@ -208,6 +208,12 @@ view: legal_entity {
     sql: ${TABLE}.valid_to_date ;;
   }
 
+  dimension: location {
+    type: location
+    sql_latitude: ${TABLE}.geo_lattitude ;;
+    sql_longitude: ${TABLE}.geo_longitude ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [legal_entity_id, legal_entity_name]

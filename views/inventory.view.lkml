@@ -16,6 +16,7 @@ view: inventory {
       date,
       week,
       month,
+      month_name,
       quarter,
       year
     ]
