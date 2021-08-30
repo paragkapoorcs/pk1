@@ -41,17 +41,15 @@
     col: 12
     width: 11
     height: 7
-  - title: Inventory Value
-    name: Inventory Value
+  - title: Inventory Count
+    name: Inventory Count
     model: scl_twin
     explore: inventory
     type: looker_line
-    fields: [inventory.total_inventory_value, inventory.inventory_date, inventory.inventory_year]
+    fields: [inventory.inventory_year, inventory.inventory_type, inventory.count]
     pivots: [inventory.inventory_year]
-    fill_fields: [inventory.inventory_date]
-    filters:
-      inventory.inventory_year: 2020/12/30 to 2021/08/27
-    sorts: [inventory.inventory_date, inventory.inventory_year]
+    fill_fields: [inventory.inventory_year]
+    sorts: [inventory.inventory_year, inventory.count desc 0]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: false
@@ -183,5 +181,71 @@
     body_text: ''
     row: 9
     col: 0
-    width: 24
+    width: 11
     height: 2
+  - name: Storage
+    type: text
+    title_text: Storage
+    subtitle_text: ''
+    body_text: ''
+    row: 9
+    col: 12
+    width: 11
+    height: 2
+  - title: Temperature Impact On Stocks
+    name: Temperature Impact On Stocks
+    model: scl_twin
+    explore: inventory
+    type: looker_line
+    fields: [location_weather.average_max_temparature, location_weather.weather_date,
+      inventory.count]
+    fill_fields: [location_weather.weather_date]
+    sorts: [location_weather.weather_date desc]
+    limit: 10
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: circle
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    show_null_points: false
+    interpolation: linear
+    y_axes: [{label: '', orientation: left, series: [{axisId: location_weather.average_max_temparature,
+            id: location_weather.average_max_temparature, name: Average Max Temparature}],
+        showLabels: true, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}, {label: !!null '', orientation: right,
+        series: [{axisId: inventory.count, id: inventory.count, name: Inventory}],
+        showLabels: true, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    series_colors:
+      location_weather.average_max_temparature: "#9d81e6"
+      inventory.count: "#1F1142"
+    reference_lines: [{reference_type: range, line_value: mean, range_end: '10', margin_top: deviation,
+        margin_value: mean, margin_bottom: deviation, label_position: right, color: "#588eff",
+        range_start: '', label: Cold}, {reference_type: range, line_value: mean, range_end: '20',
+        margin_top: deviation, margin_value: mean, margin_bottom: deviation, label_position: right,
+        color: "#f0c157", range_start: '10', label: Warm}, {reference_type: range,
+        line_value: mean, range_end: '100', margin_top: deviation, margin_value: mean,
+        margin_bottom: deviation, label_position: right, color: "#000000", range_start: '20',
+        label: Hot}]
+    defaults_version: 1
+    row: 11
+    col: 12
+    width: 11
+    height: 8
