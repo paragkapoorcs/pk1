@@ -68,6 +68,7 @@ view: location_weather {
   }
 
   dimension: location_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.location_id ;;
   }
