@@ -28,18 +28,18 @@ explore: forecast {
 
 explore: inventory {
   join: product {
-    type: full_outer
+    type: left_outer
     sql_on: ${inventory.product_uid} = ${product.product_uid} ;;
     relationship: many_to_one
   }
 
   join: location {
-    type: full_outer
+    type: left_outer
     sql_on: ${inventory.location_uid} = ${location.location_uid} ;;
     relationship: many_to_one
   }
   join: location_weather {
-    type: full_outer
+    type: left_outer
     sql_on:  ${inventory.inventory_date1} = ${location_weather.weather_date}
       AND ${inventory.location_uid} = ${location_weather.location_id} ;;
     relationship: many_to_one
@@ -52,25 +52,25 @@ explore: inventory {
 
 explore: order {
   join: asset {
-    type: full_outer
+    type: left_outer
     sql_on: ${order.asset_id} = ${asset.asset_id} ;;
     relationship: many_to_one
   }
 
   join: location {
-    type: full_outer
+    type: left_outer
     sql_on: ${order.location_id} = ${location.location_id} ;;
     relationship: many_to_one
   }
 
   join: product {
-    type: full_outer
+    type: left_outer
     sql_on: ${order.product_id} = ${product.product_id} ;;
     relationship: many_to_one
   }
 
   join: location_weather {
-    type: full_outer
+    type: left_outer
     sql_on:  ${order.requested_delivery_date1} = ${location_weather.weather_date}
     AND ${order.location_id} = ${location_weather.location_id} ;;
     relationship: many_to_one
