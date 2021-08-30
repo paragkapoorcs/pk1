@@ -401,4 +401,10 @@ view: location_weather {
     type: count
     drill_fields: []
   }
+
+  measure: average_max_temparature {
+    type: average
+    sql: ${tmax} ;;
+    value_format: "#,##0.0 \" °C\""
+  }
 }
