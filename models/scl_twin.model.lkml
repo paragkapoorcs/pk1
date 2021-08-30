@@ -75,7 +75,17 @@ explore: order {
     AND ${order.location_uid} = ${location_weather.location_id} ;;
     relationship: many_to_one
   }
+  }
+
+  explore: location {
+    join: location_weather {
+      type: left_outer
+      sql_on:  ${location.uid} = ${location_weather.location_id} ;;
+      relationship: many_to_one
+    }
 }
+
+
 
 # explore: product {}
 
