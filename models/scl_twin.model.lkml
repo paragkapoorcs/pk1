@@ -10,7 +10,7 @@ datagroup: scl_twin_default_datagroup {
 
 persist_with: scl_twin_default_datagroup
 
-explore: asset {}
+# explore: asset {}
 
 explore: forecast {
   join: product {
@@ -46,9 +46,9 @@ explore: inventory {
   }
 }
 
-explore: legal_entity {}
+# explore: legal_entity {}
 
-explore: location {}
+# explore: location {}
 
 explore: order {
   join: asset {
@@ -77,9 +77,9 @@ explore: order {
   }
 }
 
-explore: product {}
+# explore: product {}
 
-explore: location_weather {}
+# explore: location_weather {}
 
 ##Below is the join condition to join public weather data to private data. Join on location id and date
 #join: store_weather {
