@@ -59,7 +59,7 @@ explore: order {
 
   join: location {
     type: left_outer
-    sql_on: ${order.location_id} = ${location.location_id} ;;
+    sql_on: ${order.location_uid} = ${location.location_id} ;;
     relationship: many_to_one
   }
 
@@ -72,7 +72,7 @@ explore: order {
   join: location_weather {
     type: left_outer
     sql_on:  ${order.requested_delivery_date1} = ${location_weather.weather_date}
-    AND ${order.location_id} = ${location_weather.location_id} ;;
+    AND ${order.location_uid} = ${location_weather.location_id} ;;
     relationship: many_to_one
   }
 }

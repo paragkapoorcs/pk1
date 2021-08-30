@@ -117,11 +117,11 @@ view: order {
     sql: ${TABLE}.key_legal_entity ;;
   }
 
-  dimension: location_id {
+  dimension: location_uid {
     type: string
     description: "Location ID"
     # hidden: yes
-    sql: ${TABLE}.location_id ;;
+    sql: ${TABLE}.location_uid ;;
   }
 
   dimension: mode_of_transport {
