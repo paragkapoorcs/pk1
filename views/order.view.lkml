@@ -1,5 +1,5 @@
 view: order {
-  sql_table_name: `scl_twin.@{FACT_DATASET}.order`
+  sql_table_name: `dev-cs-1.scl_demo.order`
     ;;
   drill_fields: [order_id]
 
