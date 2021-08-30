@@ -405,7 +405,7 @@ view: location_weather {
 
   measure: average_max_temparature {
     type: average
-    sql: ${tmax} ;;
+    sql: ${tmax}/10 ;;
     value_format: "#,##0.0 \" °C\""
   }
 }
