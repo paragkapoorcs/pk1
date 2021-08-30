@@ -52,6 +52,11 @@ view: inventory {
     sql: ${TABLE}.inventory_date ;;
   }
 
+  dimension: inventory_date1 {
+    type: date
+    sql: cast(${TABLE}.inventory_date as timestamp) ;;
+  }
+
   dimension: inventory_ownership {
     type: string
     description: "Legal Entity for ownership (Company Code, Supplier)"

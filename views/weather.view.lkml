@@ -111,7 +111,7 @@ view: distances {
   }
 }
 ##############################
-view: location_weather {
+view: location_weather1 {
   label: "Location Weather ⛅"
   derived_table: {
    # datagroup_trigger: daily

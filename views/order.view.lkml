@@ -255,6 +255,11 @@ view: order {
     sql: ${TABLE}.requested_delivery_date ;;
   }
 
+  dimension: requested_delivery_date1 {
+    type: date
+    sql: cast(${TABLE}.requested_delivery_date as timestamp) ;;
+  }
+
   dimension: requested_quantity {
     type: string
     description: "Requested Qty"
