@@ -212,7 +212,7 @@ view: order {
     type: string
     description: "Product ID"
     # hidden: yes
-    sql: ${TABLE}.product_id ;;
+    sql: ${TABLE}.product_uid ;;
   }
 
   dimension: received_quantity {
