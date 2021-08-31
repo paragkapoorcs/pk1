@@ -335,7 +335,6 @@ view: order {
   }
 
   measure: order_count {
-    view_label: "Orders"
     type: count_distinct
     drill_fields: [detail*]
     sql: ${order_id} ;;
