@@ -137,7 +137,7 @@ view: inventory {
   dimension: days_in_inventory {
     description: "days between created and sold date"
     type: number
-    sql: TIMESTAMP_DIFF(coalesce(${inventory_raw}, CURRENT_TIMESTAMP()), ${inv_gr_raw}, DAY) ;;
+    sql: DATE_DIFF(coalesce(${inventory_raw}, CURRENT_DATE()), ${inv_gr_raw}, DAY) ;;
   }
 
   dimension: days_in_inventory_tier {
