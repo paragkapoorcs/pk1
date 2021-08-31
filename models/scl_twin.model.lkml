@@ -59,7 +59,7 @@ explore: order {
 
   join: location {
     type: left_outer
-    sql_on: ${order.location_uid} = ${location.location_id} ;;
+    sql_on: ${order.location_uid} = ${location.location_uid} ;;
     relationship: many_to_one
   }
 
