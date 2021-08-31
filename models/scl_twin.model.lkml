@@ -65,7 +65,7 @@ explore: order {
 
   join: product {
     type: left_outer
-    sql_on: ${order.product_id} = ${product.product_id} ;;
+    sql_on: ${order.product_uid} = ${product.product_uid} ;;
     relationship: many_to_one
   }
 

@@ -208,7 +208,7 @@ view: order {
     sql: ${TABLE}.preceding_document ;;
   }
 
-  dimension: product_id {
+  dimension: product_uid {
     type: string
     description: "Product ID"
     # hidden: yes
@@ -325,9 +325,9 @@ view: order {
       order_id,
       asset.asset_id,
       asset.asset_name,
-      location.location_id,
+      location.location_uid,
       location.location_name,
-      product.product_id,
+      product.product_uid,
       product.product_hierarchy_level_2_name,
       product.product_hierarchy_level_1_name,
       product.product_hierarchy_name

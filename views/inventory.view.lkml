@@ -158,7 +158,7 @@ view: inventory {
 
     filters: {
       field: is_sold
-      value: "No"
+      value: "Yes"
     }
   }
 
