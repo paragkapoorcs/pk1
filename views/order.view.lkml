@@ -333,4 +333,11 @@ view: order {
       product.product_hierarchy_name
     ]
   }
+
+  measure: order_count {
+    view_label: "Orders"
+    type: count_distinct
+    drill_fields: [detail*]
+    sql: ${order_id} ;;
+  }
 }

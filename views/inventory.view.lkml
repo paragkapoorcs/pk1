@@ -134,4 +134,32 @@ view: inventory {
     ]
   }
 
+  dimension: days_in_inventory {
+    description: "days between created and sold date"
+    type: number
+    sql: TIMESTAMP_DIFF(coalesce(${inventory_raw}, CURRENT_TIMESTAMP()), ${inv_gr_raw}, DAY) ;;
+  }
+
+  dimension: days_in_inventory_tier {
+    type: tier
+    sql: ${days_in_inventory} ;;
+    style: integer
+    tiers: [0, 5, 10, 20, 40, 80, 160, 360]
+  }
+
+  dimension: is_sold {
+    type: yesno
+    sql: ${inventory_raw} is not null ;;
+  }
+
+  measure: number_on_hand {
+    type: count
+    drill_fields: [detail*]
+
+    filters: {
+      field: is_sold
+      value: "No"
+    }
+  }
+
 }
