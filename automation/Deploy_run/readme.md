@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image1.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+## ![horizontal line](.//media/image1.png) 
 
 **Deployment & Streaming Pipelines With BQ Dataset's**
 
@@ -38,8 +38,7 @@ Organization: Google
 
 **Step1**: Login to cloud console and validate the datafusion name.
 
-![](.//media/image3.png){width="6.5in"
-height="1.5694444444444444in"}**Step2:** Create a script for bq Dataset
+![](.//media/image3.png)**Step2:** Create a script for bq Dataset
 creation, Deployment & Streaming Call For Pipeline (deploy.tf)
 
 resource \"google_bigquery_dataset\" \"dev-cs\" {
@@ -174,18 +173,18 @@ Files to be validated during the procedure.
 
 1). Terraform init
 
-![](.//media/image7.png){width="6.5in" height="3.2777777777777777in"}
+![](.//media/image7.png)
 
 2). Terraform plan
 
-![](.//media/image6.png){width="6.5in" height="4.638888888888889in"}
+![](.//media/image6.png)
 
 3). Terraform apply
 
-![](.//media/image5.png){width="6.5in" height="5.291666666666667in"}
+![](.//media/image5.png)
 
 Verify as below
 
-![](.//media/image4.png){width="6.5in" height="2.388888888888889in"}
+![](.//media/image4.png)
 
-![](.//media/image2.png){width="6.5in" height="1.7083333333333333in"}
+![](.//media/image2.png)
