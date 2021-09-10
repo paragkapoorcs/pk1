@@ -1,7 +1,6 @@
 ## ![horizontal line](.//media/image1.png) 
 
-**SCM Twin**
-**Deployment & Streaming Pipelines With BQ Dataset's**
+# **Deployment & Streaming Pipelines With BQ Dataset's**
 
 09.09.2021
 
