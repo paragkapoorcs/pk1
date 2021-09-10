@@ -1,8 +1,9 @@
 ## ![horizontal line](.//media/image1.png) 
 
+**SCM Twin**
 **Deployment & Streaming Pipelines With BQ Dataset's**
 
-17.08.2021
+09.09.2021
 
 Parag Kapoor, Pradeep C.H
 
