@@ -161,5 +161,4 @@ view: inventory {
       value: "Yes"
     }
   }
-
 }

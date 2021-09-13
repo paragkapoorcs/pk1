@@ -339,4 +339,28 @@ view: order {
     drill_fields: [detail*]
     sql: ${order_id} ;;
   }
+
+  measure: cogs {
+    type: sum
+    sql: ${delivered_quantity} * ${product.product_cost};;
+    filters: [order_category: "DELIVERY", actual_delivery_month: "12 months"]
+  }
+
+  measure: open_so {
+    type: sum
+    sql: ${open_quantity};;
+    filters: [order_category: "SALES"]
+  }
+
+  measure: open_po {
+    type: sum
+    sql: ${open_quantity};;
+    filters: [order_category: "PURCHASE"]
+  }
+
+  measure: open_delivery {
+    type: sum
+    sql: ${open_quantity};;
+    filters: [order_category: "DELIVERY"]
+  }
 }
