@@ -363,4 +363,10 @@ view: order {
     sql: ${open_quantity};;
     filters: [order_category: "DELIVERY"]
   }
+
+  measure: total_sales {
+    type: sum
+    sql: ${requested_quantity};;
+    filters: [order_category: "SALES", requested_delivery_month: "3 months"]
+  }
 }
