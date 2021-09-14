@@ -1,12 +1,12 @@
 ## ![horizontal line](.//media/image1.png)
 
-**SCL - Digital Twin Automation**
+# **SCL - Digital Twin Automation**
 
 14.09.2021
 
 Pradeep C.H, Parag Kapoor
 
-**SCM Twin**
+# **SCM Twin**
 
 # **Overview**
 
