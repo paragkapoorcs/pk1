@@ -36,7 +36,7 @@ curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namesp
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0VENDOR1" -d "@$path/0VENDOR_ATTR_supply_master-cdap-data-pipeline.json"
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0VEN_PURORG1" -d "@$path/0VEN_PURORG_ATTR_supplier_purchasing_organization-cdap-data-pipeline.json"
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_02_HDR1" -d "@$path/2LIS_02_HDR_purchasing_header-cdap-data-pipeline.json"
-#curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_02_ITM1" -d "@$path/2LIS_02_ITM_purchasing_item-cdap-data-pipeline.json"
+curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_02_ITM1" -d "@$path/2LIS_02_ITM_purchasing_item-cdap-data-pipeline.json"
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_03_BF1" -d "@$path/2LIS_03_BF_material_movements-cdap-data-pipeline.json"
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_03_BX1" -d "@$path/2LIS_03_BX_stock_initialization-cdap-data-pipeline.json"
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_04_P_MATNR1" -d "@$path/2LIS_04_P_MATNR_material_production_planning-cdap-data-pipeline.json"
