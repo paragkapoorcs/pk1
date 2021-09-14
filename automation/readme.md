@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image1.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+## ![horizontal line](.//media/image1.png)
 
 **SCL - Digital Twin Automation**
 
@@ -65,13 +65,13 @@ Create HTTP call executor :
 
 }
 
-![](.//media/image2.png){width="6.5in" height="1.9861111111111112in"}
+![](.//media/image2.png)
 
 **Step 2:**
 
 Call the secure keys in below format
 
-![](.//media/image5.png){width="6.5in" height="1.2083333333333333in"}
+![](.//media/image5.png)
 
 For detailed information you can refer :
 [[https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys]{.ul}](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys)
@@ -86,7 +86,7 @@ Below are the Steps to create the Project Peering
 -   In formation to be collected from the CDF Instance as per the below
     > snapshot
 
-> ![](.//media/image6.png){width="6.5in" height="4.055555555555555in"}
+> ![](.//media/image6.png)
 >
 > 1). Instance ID
 >
@@ -98,11 +98,11 @@ Below are the Steps to create the Project Peering
 
 -   Open the VPC Peering from the VPC Networks as below in the picture
 
-> ![](.//media/image4.png){width="6.5in" height="2.7777777777777777in"}
+> ![](.//media/image4.png)
 
 -   Create Peering Connection
 
-> ![](.//media/image3.png){width="6.5in" height="6.097222222222222in"}
+> ![](.//media/image3.png)
 
 -   Fill the above information as below
 
