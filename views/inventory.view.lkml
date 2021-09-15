@@ -122,6 +122,17 @@ view: inventory {
     sql: ${inventory_value};;
   }
 
+  measure: raw_material_inventory {
+    type: sum
+    value_format_name: usd
+    sql: ${inventory_value};;
+    filters: {
+      field: product.product_type
+      value: "RAW MATERIAL"
+    }
+
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

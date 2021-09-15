@@ -85,9 +85,19 @@ explore: order {
     }
 }
 
+ explore: product {
+  join: inventory {
+    type: left_outer
+    sql_on: ${product.product_uid} = ${inventory.product_uid} ;;
+    relationship: one_to_many
+  }
 
-
-# explore: product {}
+  join: order {
+    type: left_outer
+    sql_on: ${product.product_uid} = ${order.product_uid} ;;
+    relationship: one_to_many
+  }
+ }
 
 # explore: location_weather {}
 
