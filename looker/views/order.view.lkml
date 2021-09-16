@@ -366,7 +366,7 @@ view: order {
 
   measure: total_sales {
     type: sum
-    sql: ${requested_quantity};;
-    filters: [order_category: "SALES", requested_delivery_month: "3 months"]
+    sql: ${order.requested_quantity};;
+    filters: [order.order_category: "SALES", order.requested_delivery_month: "3 months"]
   }
 }
