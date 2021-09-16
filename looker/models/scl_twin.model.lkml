@@ -1,7 +1,7 @@
 connection: "scl_twin_private"
 
 # include all the views
-include: "/views/**/*.view"
+include: "/looker/views/**/*.view"
 
 datagroup: scl_twin_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
