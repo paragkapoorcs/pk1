@@ -85,7 +85,7 @@ explore: order {
     }
 }
 
- explore: product {
+explore: product {
   join: inventory {
     type: left_outer
     sql_on: ${product.product_uid} = ${inventory.product_uid} ;;
@@ -97,8 +97,7 @@ explore: order {
     sql_on: ${product.product_uid} = ${order.product_uid} ;;
     relationship: one_to_many
   }
- }
-
+}
 # explore: location_weather {}
 
 ##Below is the join condition to join public weather data to private data. Join on location id and date
