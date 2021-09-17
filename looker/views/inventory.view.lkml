@@ -3,6 +3,7 @@ view: inventory {
     ;;
 
   dimension: batch_number {
+    primary_key: yes
     type: number
     description: "Batch Number"
     sql: ${TABLE}.batch_number ;;
@@ -122,6 +123,12 @@ view: inventory {
     sql: ${inventory_value};;
   }
 
+  measure: average_inventory_value {
+    type: average
+    value_format_name: usd
+    sql: ${inventory_value};;
+  }
+
   measure: raw_material_inventory {
     type: sum
     value_format_name: usd
@@ -172,4 +179,8 @@ view: inventory {
       value: "Yes"
     }
   }
+#  measure: inventory_turns {
+ #   type: number
+ #   sql: ${order.cogs} / ${inventory.average_inventory_value};;
+ # }
 }

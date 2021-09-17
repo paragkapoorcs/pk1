@@ -75,7 +75,7 @@ explore: order {
     AND ${order.location_uid} = ${location_weather.location_id} ;;
     relationship: many_to_one
   }
-  }
+}
 
   explore: location {
     join: location_weather {
@@ -88,21 +88,13 @@ explore: order {
 explore: product {
   join: inventory {
     type: left_outer
-    sql_on: ${product.product_uid} = ${inventory.product_uid} ;;
+    sql_on:  ${product.product_uid} = ${inventory.product_uid};;
     relationship: one_to_many
   }
 
   join: order {
     type: left_outer
-    sql_on: ${product.product_uid} = ${order.product_uid} ;;
+    sql_on:  ${product.product_uid} = ${order.product_uid};;
     relationship: one_to_many
   }
 }
-# explore: location_weather {}
-
-##Below is the join condition to join public weather data to private data. Join on location id and date
-#join: store_weather {
-#  relationship: many_to_one
-#  sql_on: ${transactions.transaction_date} = ${store_weather.weather_date}
-#    AND ${transactions.store_id} = ${store_weather.store_id};;
-#}
