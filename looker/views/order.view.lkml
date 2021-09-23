@@ -343,7 +343,7 @@ view: order {
   measure: cogs {
     type: sum
     sql: ${delivered_quantity} * ${product.product_cost};;
-    filters: [order_category: "DELIVERY", actual_delivery_month: "12 months"]
+#    filters: [order_category: "DELIVERY", actual_delivery_month: "12 months"]
   }
 
   measure: open_so {

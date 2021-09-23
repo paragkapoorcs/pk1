@@ -10,8 +10,6 @@ datagroup: scl_twin_default_datagroup {
 
 persist_with: scl_twin_default_datagroup
 
-# explore: asset {}
-
 explore: forecast {
   join: product {
     type: left_outer
@@ -45,10 +43,6 @@ explore: inventory {
     relationship: many_to_one
   }
 }
-
-# explore: legal_entity {}
-
-# explore: location {}
 
 explore: order {
   join: asset {
@@ -87,13 +81,13 @@ explore: order {
 
 explore: product {
   join: inventory {
-    type: left_outer
+    type: inner
     sql_on:  ${product.product_uid} = ${inventory.product_uid};;
     relationship: one_to_many
   }
 
   join: order {
-    type: left_outer
+    type: inner
     sql_on:  ${product.product_uid} = ${order.product_uid};;
     relationship: one_to_many
   }
