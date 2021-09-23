@@ -92,3 +92,12 @@ explore: product {
     relationship: one_to_many
   }
 }
+
+explore: inventory_extended {
+  join: order_extended {
+    type: inner
+    sql_on: ${inventory_extended.ownership} = ${order_extended.company_code}
+    and ${inventory_extended.date} = ${order_extended.actual_delivery_date};;
+    relationship: one_to_one
+  }
+}

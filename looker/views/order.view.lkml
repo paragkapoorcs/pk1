@@ -340,8 +340,8 @@ view: order {
     sql: ${order_id} ;;
   }
 
-  measure: cogs {
-    type: sum
+  dimension: cogs {
+    type: number
     sql: ${delivered_quantity} * ${product.product_cost};;
 #    filters: [order_category: "DELIVERY", actual_delivery_month: "12 months"]
   }

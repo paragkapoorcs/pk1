@@ -3,7 +3,7 @@ view: inventory {
     ;;
 
   dimension: batch_number {
-    primary_key: yes
+#    primary_key: yes
     type: number
     description: "Batch Number"
     sql: ${TABLE}.batch_number ;;
@@ -55,6 +55,7 @@ view: inventory {
 
   dimension: inventory_date1 {
     type: date
+    primary_key: yes
     sql: cast(${TABLE}.inventory_date as timestamp) ;;
   }
 
@@ -112,22 +113,20 @@ view: inventory {
 
   dimension: inventory_value {
     type: number
-    value_format_name: percent_2
     sql: ${inventory_quantity} * ${product.product_cost};;
 
   }
 
   measure: total_inventory_value {
     type: sum
-    value_format_name: usd
     sql: ${inventory_value};;
   }
 
-  measure: average_inventory_value {
-    type: average
-    value_format_name: usd
-    sql: ${inventory_value};;
-  }
+#  measure: average_inventory_value {
+#    type: average
+#    value_format_name: usd
+#    sql: ${total_inventory_value};;
+#  }
 
   measure: raw_material_inventory {
     type: sum
@@ -179,8 +178,4 @@ view: inventory {
       value: "Yes"
     }
   }
-#  measure: inventory_turns {
- #   type: number
- #   sql: ${order.cogs} / ${inventory.average_inventory_value};;
- # }
 }
