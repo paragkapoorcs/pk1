@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image1.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+## ![horizontal line](.//media/image1.png)
 
 **Terraform POC**
 
@@ -29,16 +29,15 @@ Organization: Google
 **Step1**: Login to cloud console page and create/validate the project
 ID and Access.
 
-![](.//media/image4.png){width="6.5in" height="4.166666666666667in"}
+![](.//media/image4.png)
 
 **Step2:** On the left pane of the menu Select composer.
 
-![](.//media/image7.png){width="4.973958880139983in"
-height="7.843549868766404in"}
+![](.//media/image7.png)
 
 **Step3**: Enable the API & Create the new environment with composer 2.
 
-![](.//media/image8.png){width="6.5in" height="1.8472222222222223in"}
+![](.//media/image8.png)
 
 **Step4**: Create the Composer (Apache Airflow) with appropriate
 requirements.
@@ -46,12 +45,12 @@ requirements.
 **Step5**: Now upload the file provided with the Orchestration Folder to
 the dag buckets by clicking DAG's
 
-![](.//media/image3.png){width="6.5in" height="1.0416666666666667in"}
+![](.//media/image3.png)
 
 **Step6**: Now open the Airflow webserver & the task will be assigned as
 per the files updated
 
-![](.//media/image5.png){width="6.5in" height="1.7222222222222223in"}
+![](.//media/image5.png)
 
 **Step7**: To run the Task press the play button
 
@@ -67,7 +66,7 @@ known how to set the cron job
 
 Exmp schedule_interval=\'5 4 \* \* \*\',
 
-![](.//media/image2.png){width="6.5in" height="4.486111111111111in"}
+![](.//media/image2.png)
 
 Pipeline1 = CloudDataFusionStartPipelineOperator(
 
@@ -265,7 +264,7 @@ start_pipeline_task1 \>\> start_pipeline_task2
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-![](.//media/image6.png){width="6.5in" height="3.3472222222222223in"}
+![](.//media/image6.png)
 
 **Observations:**
 
