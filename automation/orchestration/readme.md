@@ -1,0 +1,274 @@
+## ![horizontal line](.//media/image1.png){width="6.472222222222222in" height="8.333333333333333e-2in"} 
+
+**Terraform POC**
+
+24.09.2021
+
+Pradeep C.H, Parag Kapoor
+
+**SCM Twin**
+
+# **Overview**
+
+The POC is to present the Orchestration of the Pipeline's.
+
+# **Goals**
+
+1.  Deploy workflow to schedule and run the Pipeline's
+
+# **Specifications**
+
+The Pipeline's must be deployed first before running or scheduling.
+
+Project Details: sap-adapter
+
+Organization: Google
+
+**Tools: Integrate Tool Github and Terraform cloud to deploy the IAC**.
+
+**Step1**: Login to cloud console page and create/validate the project
+ID and Access.
+
+![](.//media/image4.png){width="6.5in" height="4.166666666666667in"}
+
+**Step2:** On the left pane of the menu Select composer.
+
+![](.//media/image7.png){width="4.973958880139983in"
+height="7.843549868766404in"}
+
+**Step3**: Enable the API & Create the new environment with composer 2.
+
+![](.//media/image8.png){width="6.5in" height="1.8472222222222223in"}
+
+**Step4**: Create the Composer (Apache Airflow) with appropriate
+requirements.
+
+**Step5**: Now upload the file provided with the Orchestration Folder to
+the dag buckets by clicking DAG's
+
+![](.//media/image3.png){width="6.5in" height="1.0416666666666667in"}
+
+**Step6**: Now open the Airflow webserver & the task will be assigned as
+per the files updated
+
+![](.//media/image5.png){width="6.5in" height="1.7222222222222223in"}
+
+**Step7**: To run the Task press the play button
+
+Parameters to be set in the file before the uploading
+
+\'email\': \[\'paragkapoor\@google.com\'\],
+
+schedule_interval=**None**,
+
+Please set Mail Id for the notifications, & for the schedule interval
+Please use [[https://crontab.guru/]{.ul}](https://crontab.guru/) if not
+known how to set the cron job
+
+Exmp schedule_interval=\'5 4 \* \* \*\',
+
+![](.//media/image2.png){width="6.5in" height="4.486111111111111in"}
+
+Pipeline1 = CloudDataFusionStartPipelineOperator(
+
+location=\'europe-west1\',
+
+pipeline_name=\'0ASSET_ATTR_TEXT_asset_subnumber_delta_demo_pk\',
+
+instance_name=\"cdf-odp-looker-dev-6-4-basic\",
+
+runtime_args={\'SAPSystemNumber\': \'00\', \'SAPLanguage\': \'EN\',
+\'SAPClient\': \'100\',
+
+\'SAPApplicationServerHost\': \'10.132.0.114\', \'Dataset\':
+\'scmtwin_script_Demo\'},
+
+namespace=\'default\',
+
+pipeline_timeout=\'10 \* 60\',
+
+api_version=\'v1beta1\',
+
+gcp_conn_id=\'google_cloud_default\',
+
+dag=dag,
+
+task_id=\"asset_subnumber\"
+
+**Set the pipeline parameters as per the requirements above**
+
+Sample Code as below
+
+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+
+**import** **os**
+
+**from** **airflow** **import** models
+
+**from** **airflow.operators.python** **import** PythonOperator,
+BranchPythonOperator
+
+**from** **datetime** **import** datetime
+
+**from** **airflow.operators.dummy** **import** DummyOperator
+
+**from** **airflow.operators.bash** **import** BashOperator
+
+**from** **airflow.providers.google.cloud.operators.datafusion**
+**import** (CloudDataFusionStartPipelineOperator)
+
+**from** **airflow.utils** **import** dates
+
+**from** **airflow.utils.state** **import** State
+
+**from** **airflow.utils.dates** **import** days_ago
+
+**from** **random** **import** randint
+
+default_args = {
+
+\'owner\': \'airflow\',
+
+\'depends_on_past\': **False**,
+
+\'start_date\': datetime(2020, 9, 20),
+
+\'email\': \[\'paragkapoor\@google.com\'\],
+
+\'email_on_failure\': **True**,
+
+\'email_on_retry\': **False**,
+
+\'schedule_interval\': \'\@daily\',
+
+\'retries\': 1
+
+*#\'retry_delay\': timedelta(seconds=5),*
+
+}
+
+**with** models.DAG(
+
+\"pktest_data_fusion_new_test\",
+
+schedule_interval=\'0 7 \* \* \*\',
+
+start_date=dates.days_ago(1),
+
+catchup=**False**
+
+) **as** dag:
+
+start_pipeline_task1 = CloudDataFusionStartPipelineOperator(
+
+location=\'europe-west1\',
+
+pipeline_name=\'Date_Dimension\',
+
+instance_name=\"terraform-scm-twin\",
+
+runtime_args={\'ProjectID\': \'dev-cs-1\',
+\'TargetDatasetName\':\'scmtwin_demo1\'},
+
+namespace=\'default\',
+
+pipeline_timeout=\'10 \* 60\',
+
+api_version=\'v1beta1\',
+
+gcp_conn_id=\'google_cloud_default\',
+
+dag=dag,
+
+task_id=\"start_pipeline_async_new\"
+
+)
+
+start_pipeline_task2 = CloudDataFusionStartPipelineOperator(
+
+location=\'europe-west1\',
+
+pipeline_name=\'Date_Dimension_mod\',
+
+instance_name=\"terraform-scm-twin\",
+
+runtime_args={\'ProjectID\': \'dev-cs-1\', \'TargetDatasetName\':
+\'scmtwin_demo2\'},
+
+namespace=\'default\',
+
+pipeline_timeout=\'10 \* 60\',
+
+api_version=\'v1beta1\',
+
+gcp_conn_id=\'google_cloud_default\',
+
+dag=dag,
+
+task_id=\"start_pipeline_async_Second\"
+
+)
+
+start_pipeline_task3 = CloudDataFusionStartPipelineOperator(
+
+location=\'europe-west1\',
+
+pipeline_name=\'scltwinsingle\',
+
+instance_name=\"terraform-scm-twin\",
+
+runtime_args={\'ProjectID\': \'dev-cs-1\', \'TargetDatasetName\':
+\'scmtwin_demo3\'},
+
+namespace=\'default\',
+
+pipeline_timeout=\'10 \* 60\',
+
+api_version=\'v1beta1\',
+
+gcp_conn_id=\'google_cloud_default\',
+
+dag=dag,
+
+task_id=\"start_pipeline_async_Third\"
+
+)
+
+start_pipeline_task4 = CloudDataFusionStartPipelineOperator(
+
+location=\'europe-west1\',
+
+pipeline_name=\'ddimention\',
+
+instance_name=\"terraform-scm-twin\",
+
+runtime_args={\'ProjectID\': \'dev-cs-1\', \'TargetDatasetName\':
+\'scmtwin_demo4\'},
+
+namespace=\'default\',
+
+pipeline_timeout=\'10 \* 60\',
+
+api_version=\'v1beta1\',
+
+gcp_conn_id=\'google_cloud_default\',
+
+dag=dag,
+
+task_id=\"start_pipeline_async_Forth\"
+
+)
+
+start_pipeline_task1 \>\> start_pipeline_task2
+
+\[start_pipeline_task2, start_pipeline_task3\] \>\> start_pipeline_task4
+
+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+
+![](.//media/image6.png){width="6.5in" height="3.3472222222222223in"}
+
+**Observations:**
+
+1.  Composer instance will be created
+
+2.  Pipeline workflow will be updated and ready for the run
