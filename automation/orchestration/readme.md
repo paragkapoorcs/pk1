@@ -1,4 +1,4 @@
-## ![horizontal line](.//media/image1.png)
+# ## ![horizontal line](.//media/image1.png)
 
 **Google Composer Pipeline Orchestration**
 
