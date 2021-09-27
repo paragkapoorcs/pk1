@@ -95,6 +95,8 @@ Below are the Steps to create the Project Peering
 > 3). Service Account
 >
 > 4). Tenant Project ID (double underlined)
+> 
+> 5). Orchestration
 
 -   Open the VPC Peering from the VPC Networks as below in the picture
 
@@ -131,7 +133,7 @@ This folder consists of the two scripts 1. Bqdatase.tf (terraform file)
 
 -   Please use gcloud init before using the scripts.
 
--   Change the dataset name in bqdataset.tf according to the requirement
+-   Change the dataset name in bqdataset.tf according to the requirement there are three dataset one is for data load and other two are for dimension & facts
 
 -   Set up the shell file for the execution of the pipelines
 
@@ -149,3 +151,6 @@ This folder consists of the two scripts 1. Bqdatase.tf (terraform file)
 
 This folder contains the combine script to run L0 cdf-piplines provided
 in repo.
+
+**orchestration** :- use the orchestration for the runing the pipeline for the full load, delta load, and Dimentian & facts
+
