@@ -1,5 +1,5 @@
 view: location {
-  sql_table_name: `dev-cs-1.scl_demo.location`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.location`
     ;;
   drill_fields: [location_id]
 

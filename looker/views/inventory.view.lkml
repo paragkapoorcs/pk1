@@ -1,5 +1,5 @@
 view: inventory {
-  sql_table_name: `dev-cs-1.scl_demo.inventory`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.inventory`
     ;;
 
   dimension: batch_number {

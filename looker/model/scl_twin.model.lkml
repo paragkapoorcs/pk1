@@ -1,4 +1,4 @@
-connection: "scl_twin_private"
+connection: "@{CONNECTION}"
 
 # include all the views
 include: "/looker/views/**/*.view"

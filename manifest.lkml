@@ -1,6 +1,4 @@
-#project_name: "scl_twin"
-
-
+# project_name: "scl_twin"
 
 constant: PROJECT {
   value: "dev-cs-1"
@@ -18,6 +16,6 @@ constant: FACT_DATASET {
 }
 
 constant: CONNECTION {
-  value: "scl_private_twin"
+  value: "scl_twin_private"
   export: override_optional
 }

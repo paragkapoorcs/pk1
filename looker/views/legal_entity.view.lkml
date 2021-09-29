@@ -1,5 +1,5 @@
 view: legal_entity {
-  sql_table_name: `dev-cs-1.scl_demo.legal_entity`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.legal_entity`
     ;;
   drill_fields: [legal_entity_id]
 

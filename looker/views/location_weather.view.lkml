@@ -1,5 +1,5 @@
 view: location_weather {
-  sql_table_name: `dev-cs-1.scl_demo.location_weather`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.location_weather`
     ;;
 
   dimension: average_distance_to_weather_stations_km {

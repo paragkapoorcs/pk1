@@ -23,6 +23,8 @@ There are three different types of data sets which are described below
 - Asset
 - Inventory
 - Location
+- Order
+- Product
 
 #### Public Data Set
 - Weather
