@@ -7,7 +7,7 @@ This Automation enables bulk data integration from various applications with Clo
 This Document's Guides you to understand the Automation structure and
 how to use it
 
-# **Version**
+**Version**
 
 1.  Version 1.0
 
