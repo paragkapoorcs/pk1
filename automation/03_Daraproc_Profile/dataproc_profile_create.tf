@@ -11,18 +11,18 @@ source = "GoogleCloudPlatform/cdap"
 
 provider "cdap" {
 # Configuration options
-host = "https://terraform-cdf-poc-dev-cs-1-dot-euw1.datafusion.googleusercontent.com/api/"
+host = "var.host"
 token = data.google_client_config.current.access_token
 }
 
 resource "cdap_profile" "profile" {
-name = "scmtwinprofile"
-label = "scmtwin-profile"
+name = "var.name"
+label = "var.lables
 profile_provisioner {
 name = "gcp-dataproc"
 properties {
 name = "projectId"
-value = "dev-cs-1"
+value = "var.project_id"
 is_editable = true
 }
 }

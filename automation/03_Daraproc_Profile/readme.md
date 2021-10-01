@@ -1,102 +1,28 @@
-## ![horizontal line](.//media/image1.png)
+# **Dataproc Profile**
 
-**Terraform POC**
-
-17.08.2021
-
-Pradeep C.H, Parag Kapoor
-
-**SCM Twin**
-
-# **Overview**
-
-The POC is to present the Terraform IAC on Compute engine creation ,
-With required VPC Network, Firewall Rules, IP and Zones.
-
-# **Goals**
-
-1.  Deploy CDF Datafusion profile using (IAC) Terraform.
+1.  Deploy CDF Dataproc profile using (IAC) Terraform.
 
 # **Specifications**
 
 The dataproc profile should be created inside the DataFusion Instance.
 
-Project Details: dev-cs-1
+**Tools**
 
-Organization: Google
+Run Locally from gcloud SDK, & Terraform-cli.
 
-**Tools: Run Locally from gcloud SDK**.
+**Step1**
 
-**Step1**: Login to cloud console and validate the datafusion name.
+Login to cloud console and validate the datafusion name.
 
-![](.//media/image2.png)
-
-**Step2: 1).**Create a script for namespace creation (main.tf)
-
-**data \"google_client_config\" \"current\" {}**
-
-**terraform {**
-
-**required_providers {**
-
-**cdap = {**
-
-**source = \"GoogleCloudPlatform/cdap\"**
-
-**\# version = \"\< 1.0\"**
-
-**}**
-
-**}**
-
-**}**
-
-**provider \"cdap\" {**
-
-**\# Configuration options**
-
-**host =
-\"[[https://terraform-cdf-poc-dev-cs-1-dot-euw1.datafusion.googleusercontent.com/api/]{.ul}](https://terraform-cdf-poc-dev-cs-1-dot-euw1.datafusion.googleusercontent.com/api/)\"**
-
-**token = data.google_client_config.current.access_token**
-
-**}**
-
-**resource \"cdap_profile\" \"test\" {**
-
-**name = \"scmtwinprofile\"**
-
-**label = \"scmtwin-profile\"**
-
-**profile_provisioner {**
-
-**name = \"gcp-dataproc\"**
-
-**properties {**
-
-**name = \"projectId\"**
-
-**value = \"dev-cs-1\"**
-
-**is_editable = true**
-
-**}**
-
-**}**
-
-**}**
-
-**Step3:** Run the scripts from the gcloud sdk.
-
-![](.//media/image3.png)
+**Step2** 
 
 Files to be validated during the procedure.
 
-1.  main.tf
+1.  dataproc_profile_create.tf
 
-2.  terraform.tfstate
+2.  provider.tf
 
-3.  provider.tf
+3.  variables.tf
 
 **Actions to be executed:**
 
@@ -112,21 +38,12 @@ Files to be validated during the procedure.
 
 1). Terraform init
 
-![](.//media/image7.png)
-
 2). Terraform plan
-
-![](.//media/image4.png)
 
 3). Terraform apply
 
-![](.//media/image6.png)
-
-Verify as below
-
-![](.//media/image5.png)
+**Note :- Variables will Be asked while running of the script
 
 **Observations:**
 
-1.  Dataproc-Profile created with the name scmtwin as given in above
-    > shot
+1.  Dataproc-Profile created with the name as given in variable
