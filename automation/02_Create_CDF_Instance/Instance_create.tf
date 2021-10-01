@@ -8,26 +8,25 @@ terraform {
 }
 
 provider "google-beta" {
-  project = "cs-tmpl-test"
+  project = "var.project_id"
 }
 
 resource "google_data_fusion_instance" "extended_instance" {
   provider = google-beta
-  #instance_id = "cdf-terraform-test"
-  name = "cdf-terraform-test"
+  name = "var.cdf_name"
   description = "My Data Fusion instance using terraform"
-  region = "europe-west1"
-  type = "BASIC"
-  dataproc_service_account = "786134557615-compute@developer.gserviceaccount.com"
+  region = "var.region"
+  type = "var.type"
+  dataproc_service_account = "var.compute_service_account"
   enable_stackdriver_logging = true
   enable_stackdriver_monitoring = true
   labels = {
-    example_key = "example_value"
+    example_key = "var.lable"
   }
   private_instance = true
   network_config {
-    network = "custom-vpc"
-    ip_allocation = "10.89.48.0/22"
+    network = "var.network"
+    ip_allocation = "var.ip"
   }
-  version = "6.4.1"
+  version = "version"
 }
