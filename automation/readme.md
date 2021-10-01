@@ -1,14 +1,8 @@
-## ![horizontal line](.//media/image1.png)
-
 # **SCL - Digital Twin Automation**
 
-14.09.2021
+This guide describes how to deploy, configure, and run data pipelines that use the CDF & BigQuery. You can use a source for batch-based and delta-based data extraction in Cloud Data Fusion through Operational Data Provisioning (ODP).
 
-Pradeep C.H, Parag Kapoor
-
-# **SCM Twin**
-
-# **Overview**
+This Automation enables bulk data integration from various applications with Cloud Data Fusion. You can configure and execute bulk data transfers from DataSources.
 
 This Document's Guides you to understand the Automation structure and
 how to use it
@@ -17,27 +11,22 @@ how to use it
 
 1.  Version 1.0
 
-Project Details: sap-adapter
-
-Organization: Cloudsufi
-
-**Tools: Integrate Tool Github, Terraform, Google Cloud SDK, Shell**.
+**Tools: Integrate Tool Github, Terraform, Google Cloud SDK, Shell, Composer**.
 
 **Folder In sequential use**
 
--   CDF-Instance
-
+-   Before Installation
+-   Create CDF Instance
 -   Tenant Project Peering
+-   Dataproc Profile
+-   BigQuery & Pipeline Deploy
+-   Orchestration
 
--   Namespaces
+**Before Installtion** :- In this will be able to setup the pre-requesites for the Automation
 
--   Deploy Run
+**Create CDF Instance** :- In this will be able to create the new instance on Cloud Data Fusion
 
-**CDF-Instance** :- This is used to create the Data Fusion Instance in
-which we deploy & run the Pipelines
-
-After Creating the CDF instance we need to connect to SAP resource which
-required the below steps to be followed
+After Creating the CDF instance we need to connect to SAP resource which required the below steps to be followed.
 
 steps to create and reuse secure macros
 
@@ -76,10 +65,7 @@ Call the secure keys in below format
 For detailed information you can refer :
 [[https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys]{.ul}](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys)
 
-**Tenant Project Peering** :- Tenant project Peering is important as the
-cdf instance is only the CDAP frontend for the creation and maintenance
-of pipelines the services are running in the backend which is configured
-on Google Instance
+**Tenant Project Peering** :- In this will be able to connect the Cloud Data Fusion Instance to GCS Project
 
 Below are the Steps to create the Project Peering
 
@@ -122,15 +108,14 @@ Below are the Steps to create the Project Peering
 
     -   Then click on Create (it will create the tenant peered network)
 
-**Namespace** :- use namespace script if required to work on the
-separate namespaces other than default
+**Dataproc Profile** :- In this will be able to create the Dataproc profile for the running of the pipeline 
 
-**Deploy Run** :- This script helps you to Create the BigQuery Dataset,
-Deployment of the Pipelines & executing them
+**BigQuery & Pipeline Deploy** :- This script helps you to Create the BigQuery Dataset, Deployment of the Pipelines.
 
-This folder consists of the two scripts 1. Bqdatase.tf (terraform file)
+This folder consists of the two scripts 
+1. Bqdatase.tf (terraform file)
 2. Start.sh (shell script to call pipeline api's)
-
+3. Variable.sh
 -   Please use gcloud init before using the scripts.
 
 -   Change the dataset name in bqdataset.tf according to the requirement there are three dataset one is for data load and other two are for dimension & facts
@@ -152,5 +137,4 @@ This folder consists of the two scripts 1. Bqdatase.tf (terraform file)
 This folder contains the combine script to run L0 cdf-piplines provided
 in repo.
 
-**orchestration** :- use the orchestration for the runing the pipeline for the full load, delta load, and Dimentian & facts
-
+**orchestration** :- In this will be able to run the pipeline as per the scheduled.
