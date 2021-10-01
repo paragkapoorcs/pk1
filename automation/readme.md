@@ -7,13 +7,13 @@ This Automation enables bulk data integration from various applications with Clo
 This Document's Guides you to understand the Automation structure and
 how to use it
 
-**Version**
+# **Version**
 
 1.  Version 1.0
 
-**Tools: Integrate Tool Github, Terraform, Google Cloud SDK, Shell, Composer**.
+# **Tools: Integrate Tool Github, Terraform, Google Cloud SDK, Shell, Composer**.
 
-**Folder In sequential use**
+# **Folder In sequential use**
 
 -   Before Installation
 -   Create CDF Instance
