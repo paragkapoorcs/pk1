@@ -5,9 +5,9 @@ view: order_extended {
           `order`.company_code  AS order_company_code,
               (`order`.actual_delivery_date ) AS order_actual_delivery_date,
               AVG(CASE WHEN (((`order`.order_category) = 'SALES')) AND ((((`order`.requested_delivery_date ) >= ((DATE_ADD(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL -2 MONTH))) AND (`order`.requested_delivery_date ) < ((DATE_ADD(DATE_ADD(DATE_TRUNC(CURRENT_DATE(), MONTH), INTERVAL -2 MONTH), INTERVAL 3 MONTH)))))) THEN ( `order`.requested_quantity ) ELSE NULL END) AS order_average_sales
-      FROM `dev-cs-1.scl_canonical.product`
+      FROM `dev-cs-1.scl_demo.product`
            AS product
-      INNER JOIN `dev-cs-1.scl_canonical.order`
+      INNER JOIN `dev-cs-1.scl_demo.order`
            AS `order` ON product.product_uid = (`order`.product_uid)
       GROUP BY
           1,

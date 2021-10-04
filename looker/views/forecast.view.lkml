@@ -1,5 +1,5 @@
 view: forecast {
-  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.forecast`
+  sql_table_name: `@{PROJECT}.@{DIM_DATASET}.forecast`
     ;;
 
   dimension_group: forecast {
