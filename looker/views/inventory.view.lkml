@@ -178,4 +178,9 @@ view: inventory {
       value: "Yes"
     }
   }
+
+  measure: total_inventory_quantity {
+    type: sum
+    sql: ${inventory_quantity} ;;
+    }
 }
