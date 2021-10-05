@@ -8,8 +8,8 @@ Version 1.0
 # L0 Layer Delta Load
 # Overview
 
-In SAP all extartor are not set for delta load. Hence, in our process we are trying to utilize and delevoped delta process for the extractors which support.
-  
+In SAP all extartor are not set for delta load. Only few extractors are having the delta option enable. Due to this we are creating delta process for few extarctors. Below are the list of extractors which support the delta.
+
   
   ## List of extractors used to get the delta data from SAP to the raw layer.
 
@@ -51,6 +51,9 @@ In SAP all extartor are not set for delta load. Hence, in our process we are try
 
 **Below are the 3 options which are main in the SAP ODP plugin which we have to set for the full load.**
 
+SAP ODP Plugin Version: 0.0.12
+
+
 **SAP ODP Datasource Name** - Need to pass the extractor name from which we need to extractor the data.
 
 ![](images/ODPDataSource.png)
@@ -61,8 +64,46 @@ In SAP all extartor are not set for delta load. Hence, in our process we are try
 
 **SAP ODP Subscriber Name** - In this we are going to pass a name which is getting register in SAP that with Subscriber Name we have done Full or Sync load.
 
-![](images/DeltaLoadExtractType.png)
+![](images/ODPSubscriberName.png)
 
-> Note: We have to see that we are passing unique name ODP Sucscriber for each extractor.
+> Note: We have pass unique name to ODP Subscriber for each extractor.
   
-Imange
+In Delta Load we us the Target table as source and target, as we are implementing the SCD Type 2 for all the raw table. As we use main table as source we have to select on valid records. 
+
+Below are list of option which we need to take care in the pipeline.
+
+**Source Big Query Table Filter** -- This option is set to select only the valid records, which are compared with source records comming from the extractor to implement SCD type 2.
+
+![](images/DeltaScrBigTableFilter.png)
+
+
+**Target Big Query Tabel Option** -- In SCD Type 2, when a new records we have to insert the record and for old records if there is a match then we have to invalid the old record and insert the new record.
+
+**Truncate Option**. -- We have turn off truncate table option in the delta load for the target Big Query Plugin. Also we have to see that we are inserting the new records and select the insert option.
+
+![](images/DeltaTargetOption1.png)
+
+![](images/DeltaTargetTruncOption1.png)
+
+**Update the Old Records in Big Query** -- As in SCD type 2 we have to turn invalid the old records which has a match with the delta data.For this we have to dedupe for this below are the option we have to give and update the record no the key column.
+
+
+![](images/DeltaTargetOption2.png)
+
+![](images/DeltaTargetDeDup.png)
+
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at
+https://cloud.google.com/terms/service-terms#general-service-terms
+
+
+
+
+
+
+
+
+
+
