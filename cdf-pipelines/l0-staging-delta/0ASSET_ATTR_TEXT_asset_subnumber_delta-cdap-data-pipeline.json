@@ -484,7 +484,7 @@
                         "project": "auto-detect",
                         "dataset": "${Dataset}",
                         "table": "asset_subnumber",
-                        "filter": "dw_last_update_date = 'Y'",
+                        "filter": "dw_active_indicator = 'Y'",
                         "enableQueryingViews": "false",
                         "serviceAccountType": "filePath",
                         "serviceFilePath": "auto-detect",
