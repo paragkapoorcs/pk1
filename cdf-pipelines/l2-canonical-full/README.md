@@ -23,6 +23,12 @@ This layer is known as canonical layer where data is extracted from all Dimensio
 | product     | 
 
 
-> Note: Pipeline which is started with **L2_table_creation** and **L2_table_views** need to run first to create the L2 layer canonical tables and views.
+> Note: Pipeline which is started with **L2_table_creation** and **L2_table_views** need to run first to create the L2 layer canonical tables and views. This two pipeline will run only for one type.
 
-Here data is get refreshed every they and the pipeline **L2_loading_data** pipeline refresh the data in the above entity tables.
+Whenever we have completed the L1- layer process this we have to trigger pipeline **L2_loading_data** which refresh the data in the above entity tables in L2 layer.
+
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at
+https://cloud.google.com/terms/service-terms#general-service-terms
