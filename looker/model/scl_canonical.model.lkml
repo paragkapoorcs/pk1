@@ -2,6 +2,7 @@ connection: "@{CONNECTION}"
 
 # include all the views
 include: "/looker/views/**/*.view"
+include: "/looker/dashboards/*"
 
 datagroup: scl_twin_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -66,17 +67,17 @@ explore: order {
   join: location_weather {
     type: left_outer
     sql_on:  ${order.requested_delivery_date1} = ${location_weather.weather_date}
-    AND ${order.location_uid} = ${location_weather.location_id} ;;
+      AND ${order.location_uid} = ${location_weather.location_id} ;;
     relationship: many_to_one
   }
 }
 
-  explore: location {
-    join: location_weather {
-      type: left_outer
-      sql_on:  ${location.uid} = ${location_weather.location_id} ;;
-      relationship: many_to_one
-    }
+explore: location {
+  join: location_weather {
+    type: left_outer
+    sql_on:  ${location.uid} = ${location_weather.location_id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: product {
@@ -97,7 +98,7 @@ explore: inventory_extended {
   join: order_extended {
     type: inner
     sql_on: ${inventory_extended.ownership} = ${order_extended.company_code}
-    and ${inventory_extended.date} = ${order_extended.actual_delivery_date};;
+      and ${inventory_extended.date} = ${order_extended.actual_delivery_date};;
     relationship: one_to_one
   }
 }

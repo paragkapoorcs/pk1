@@ -1,5 +1,5 @@
 view: order {
-  sql_table_name: `@{PROJECT}.@{DIM_DATASET}.order`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.order`
     ;;
   drill_fields: [order_id]
 

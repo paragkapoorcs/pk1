@@ -1,5 +1,5 @@
 view: location {
-  sql_table_name: `@{PROJECT}.@{DIM_DATASET}.location`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.location`
     ;;
   drill_fields: [location_id]
 
