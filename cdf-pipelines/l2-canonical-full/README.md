@@ -27,6 +27,30 @@ This layer is known as canonical layer where data is extracted from all Dimensio
 
 Whenever we have completed the L1- layer process this we have to trigger pipeline **L2_loading_data** which refresh the data in the above entity tables in L2 layer.
 
+**Sync the data into a new Project ID**
+
+``` sql
+TRUNCATE TABLE `${TargetProjectID}.${TargetDatasetName}.inventory`;
+INSERT INTO `${TargetProjectID}.${TargetDatasetName}.inventory`
+SELECT * FROM `${SourceProjectID}.${SourceDatasetName}.inventory`;
+
+TRUNCATE TABLE `$${TargetProjectID}.${TargetDatasetName}.legal_entity`;
+INSERT INTO `${TargetProjectID}.${TargetDatasetName}.legal_entity`
+SELECT * FROM `${SourceProjectID}.${SourceDatasetName}.legal_entity`;
+
+TRUNCATE TABLE `${TargetProjectID}.${TargetDatasetNames3}.location`;
+INSERT INTO `${TargetProjectID}.${TargetDatasetName}.location`
+SELECT * FROM `${SourceProjectID}.${SourceDatasetName}.location`;
+
+TRUNCATE TABLE `${TargetProjectID}.${TargetDatasetName}.order`;
+INSERT INTO `${TargetProjectID}.${TargetDatasetName}.order`
+SELECT * FROM `${SourceProjectID}.${SourceDatasetName}.order`;
+
+TRUNCATE TABLE `${TargetProjectID}.${TargetDatasetName}.product`;
+INSERT INTO `${TargetProjectID}.${TargetDatasetName}.product`
+SELECT * FROM `${SourceProjectID}.${SourceDatasetName}.product`;
+```
+
 
 Copyright 2021 Google Inc. All rights reserved.
 
