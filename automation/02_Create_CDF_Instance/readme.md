@@ -1,3 +1,10 @@
+
+# Copyright 2021 Google Inc. All rights reserved.
+
+# The use of this software is governed by the Pre-GA Offering Terms section
+# of the the Service Specific Terms set forth at
+# https://cloud.google.com/terms/service-terms#general-service-terms
+
 # **Create CDF Instance**
 
 This module handle opinionated Google Cloud Platform Data Fusion instances.
@@ -51,11 +58,5 @@ Code executed successfully and CDF instance is created.
 **Observations:**
 
 1.  CDF instance created without instance ID - The Instance name will setup Instance ID
-
-##Copyright 2021 Google Inc. All rights reserved.
-
-##The use of this software is governed by the Pre-GA Offering Terms section
-##of the the Service Specific Terms set forth at
-##https://cloud.google.com/terms/service-terms#general-service-terms
 
 
