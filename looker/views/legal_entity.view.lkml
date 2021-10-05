@@ -1,5 +1,5 @@
 view: legal_entity {
-  sql_table_name: `@{PROJECT}.@{DIM_DATASET}.legal_entity`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.legal_entity`
     ;;
   drill_fields: [legal_entity_id]
 

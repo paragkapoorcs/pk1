@@ -1,5 +1,5 @@
 view: inventory {
-  sql_table_name: `@{PROJECT}.@{DIM_DATASET}.inventory`
+  sql_table_name: `@{PROJECT}.@{FACT_DATASET}.inventory`
     ;;
 
   dimension: batch_number {
