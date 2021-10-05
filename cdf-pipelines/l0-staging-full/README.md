@@ -55,20 +55,36 @@ Data pipeline are developed to extract the data from the SAP using the ODP Plugi
   
  ## Full Load pipeline 
  
-Full Load Image
+![](images/FullLoad.png)
 
 ## Data Source SAP ODP Plugin options.  
 
-**Below are the 3 options which are main in the SAP ODP plugin which we have to set for the full load.**
+SAP ODP Plugin version : 0.0.12
 
-  
+**Below are the 3 options which are main in the SAP ODP plugin which we have to set for the full load.**  
 
 **SAP ODP Datasource Name** - Need to pass the extractor name from which we need to extractor the data.
 
+![](images/ODPDataSource.png)
+
 **Extract Type** - Mode to extract (Full or Sync)
+
+![](images/FullLoadExtarctType.png)
 
 **SAP ODP Subscriber Name** - In this we are going to pass a name which is getting register in SAP that with Subscriber Name we have done Full or Sync load.
 
-> Note: We have to see that we are passing unique name ODP Sucscriber for each extractor.
+![](images/ODPSubscriberName.png)
+
+> Note: We have to pass unique name in ODP Sucscriber for each extractor.
   
-Imange
+Target Big Query Table plugin we turn on the below option. 
+
+![](images/FullLoadBigtruncate.png)
+
+> Note: When we run the full load pipeline this option will truncate the table and loads the fresh data.
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section
+of the the Service Specific Terms set forth at
+https://cloud.google.com/terms/service-terms#general-service-terms
