@@ -45,19 +45,23 @@ In SAP all extartor are not set for delta load. Hence, in our process we are try
   
  ## Delta Load pipeline 
  
-Full Load Image
+![](images/DeltaLoad.png)
 
 ## Data Source SAP ODP Plugin options.  
 
 **Below are the 3 options which are main in the SAP ODP plugin which we have to set for the full load.**
 
-  
-
 **SAP ODP Datasource Name** - Need to pass the extractor name from which we need to extractor the data.
 
-**Extract Type** - Mode to extract (Full or Sync)
+![](images/ODPDataSource.png)
+
+**Extract Type** - Mode to extract Sync which makes the OPD Plugin to get the delta data which got recently update/insert.
+
+![](images/DeltaLoadExtractType.png)
 
 **SAP ODP Subscriber Name** - In this we are going to pass a name which is getting register in SAP that with Subscriber Name we have done Full or Sync load.
+
+![](images/DeltaLoadExtractType.png)
 
 > Note: We have to see that we are passing unique name ODP Sucscriber for each extractor.
   
