@@ -2,15 +2,15 @@
 #Gcloud Information#
 #------------------#
 
-gcloud auth login paragkapoor@google.com
-gcloud config set project sap-adapter
+gcloud auth login $gcloud_username
+gcloud config set project $gclod_projectid
 
 #__________________#
 #SET CDF Variables #
 #------------------#
 
 export AUTH_TOKEN=$(gcloud auth print-access-token)
-export INSTANCE_ID=cdf-odp-looker-dev-6-4-basic
+export INSTANCE_ID=$gcloud_cdf_instance
 export CDAP_ENDPOINT=$(gcloud beta data-fusion instances describe \
         --location=europe-west1 \
         --format="value(apiEndpoint)" \
@@ -51,42 +51,3 @@ curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namesp
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_12_VCSCL1" -d "@$path/2LIS_12_VCSCL_schedule_line_delivery-cdap-data-pipeline.json"
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_13_VDHDR1" -d "@$path/2LIS_13_VDHDR_billing_document_header-cdap-data-pipeline.json"
 curl -X PUT -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_13_VDITM1" -d "@$path/2LIS_13_VDITM_billing_document_item-cdap-data-pipeline.json"
-
-
-#__________________#
-#Run Pipelines     #
-#------------------#
-
-
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0ASSET1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0BP_DEF_ADDRESS1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0CUSTOMER1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0CUST_COMPC1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0CUST_SALES1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0FI_GL_41/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0MATERIAL1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0MATERIAL_TEXT1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0MAT_PLANT1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0MAT_ST_LOC1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0PLANT1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0PP_MD_MATERIAL1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0PRODORDER1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0VENDOR1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/0VEN_PURORG1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_02_HDR1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_02_ITM1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_03_BF1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_03_BX1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_04_P_MATNR1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_06_INV1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_11_VAHDR1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_11_VAITM1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_11_VASCL1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_11_VASTH1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_11_VASTI1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_12_VCHDR1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_12_VCITM1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_12_VCSCL1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_13_VDHDR1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-curl -X POST -H "Authorization: Bearer ${AUTH_TOKEN}" "${CDAP_ENDPOINT}/v3/namespaces/default/apps/2LIS_13_VDITM1/workflows/DataPipelineWorkflow/start" -d '{"SAPSystemNumber"="00", "SAPLanguage"="EN", "SAPClient"="100", "SAPApplicationServerHost"="10.132.0.114", "Dataset"="scmtwin_script_Demo"}'
-
