@@ -186,3 +186,8 @@ Verify as below
 ![](.//media/image4.png)
 
 ![](.//media/image2.png)
+
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
