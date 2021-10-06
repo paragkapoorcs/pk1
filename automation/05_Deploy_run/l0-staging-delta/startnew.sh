@@ -2,15 +2,15 @@
 #Gcloud Information#
 #------------------#
 
-gcloud auth login paragkapoor@google.com
-gcloud config set project sap-adapter
+gcloud auth login $gcloud_username
+gcloud config set project $gclod_projectid
 
 #__________________#
 #SET CDF Variables #
 #------------------#
 
 export AUTH_TOKEN=$(gcloud auth print-access-token)
-export INSTANCE_ID=cdf-odp-looker-dev-6-4-basic
+export INSTANCE_ID=$gcloud_cdf_instance
 export CDAP_ENDPOINT=$(gcloud beta data-fusion instances describe \
         --location=europe-west1 \
         --format="value(apiEndpoint)" \
