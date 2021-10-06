@@ -1,5 +1,3 @@
-## ![horizontal line](.//media/image1.png) 
-
 # **Deployment & Streaming Pipelines With BQ Dataset's**
 
 09.09.2021
