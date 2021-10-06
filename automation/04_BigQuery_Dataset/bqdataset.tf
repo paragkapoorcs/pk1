@@ -1,18 +1,18 @@
-resource "google_bigquery_dataset" "dev-cs-1" {
-     dataset_id                      = "scm_dataset"
+resource "google_bigquery_dataset" "bq-data-set" {
+     dataset_id                      = var.datasetmain
      default_partition_expiration_ms = 0
      delete_contents_on_destroy      = false
-     description                     = "SCM Dataset POC"
-     friendly_name                   = "scmtwin"
+     description                     = "SCM Dataset"
+     friendly_name                   = var.datasetmain_name
      labels                          = {
          "env" = "default"
         }
      location                        = "EU"
-     project                         = "dev-cs-1"
+     project                         = var.project_id
 
      access {
          role          = "OWNER"
-         user_by_email = "paragkapoor@google.com"
+         user_by_email = var.owner_email
         }
      access {
          role          = "OWNER"
