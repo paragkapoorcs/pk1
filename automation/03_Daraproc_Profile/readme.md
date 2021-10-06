@@ -47,3 +47,8 @@ Files to be validated during the procedure.
 **Observations:**
 
 1.  Dataproc-Profile created with the name as given in variable
+
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
