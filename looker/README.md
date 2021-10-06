@@ -66,3 +66,5 @@ A production order is used to define the material to be produced, plant location
 
 ### Required Customization
 - Some fields which are not going to be used, should be set hidden
+
+Copyright 2021 Google Inc. All rights reserved.

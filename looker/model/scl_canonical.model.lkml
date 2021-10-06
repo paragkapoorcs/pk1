@@ -1,3 +1,5 @@
+# Copyright 2021 Google Inc. All rights reserved.
+
 connection: "@{CONNECTION}"
 
 # include all the views
