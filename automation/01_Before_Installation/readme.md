@@ -17,3 +17,8 @@ For the Installtion of the Terraform-cli Please refer to https://learn.hashicorp
 For seting up the Google Cloud Composer Enviornment please refer to https://cloud.google.com/composer/docs/how-to/managing/creating
 
 After setting up the composer enviornment, need to update the google provider on airflow. Install the packeges from pipy to version 5.1.0(Current Version) 
+
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
