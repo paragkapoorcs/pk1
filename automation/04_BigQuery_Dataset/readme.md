@@ -1,10 +1,4 @@
-## ![horizontal line](.//media/image1.png)
-
-**Terraform POC**
-
-27.08.2021
-
-Pradeep C.H, Parag Kapoor
+## BigQuery Dataset
 
 **SCM Twin**
 
@@ -132,3 +126,10 @@ Verify as below
 
 1.  A blank BigQuery Dataset is created with the name scm_dataset as
     > given in above shot
+
+
+#Copyright 2021 Google Inc. All rights reserved.
+
+#The use of this software is governed by the Pre-GA Offering 
+#Terms section of the the Service Specific Terms set forth at 
+#https://cloud.google.com/terms/service-terms#general-service-terms
