@@ -25,8 +25,8 @@ variable "compute_service_account" {
   description = "Google Cloud Project Compute Service Account"
 }
 
-variable "lable" {
-  description = "Lable, ex :- SAP"
+variable "label" {
+  description = "Label, ex :- SAP"
 }
 
 variable "network" {
