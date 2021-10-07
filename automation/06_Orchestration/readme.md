@@ -1,9 +1,5 @@
 # **Google Composer Pipeline Orchestration**
 
-24.09.2021
-
-Pradeep C.H, Parag Kapoor
-
 **SCM Twin**
 
 # **Overview**
