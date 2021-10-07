@@ -1,5 +1,3 @@
-## ![horizontal line](.//media/image1.png)
-
 # **Google Composer Pipeline Orchestration**
 
 24.09.2021
