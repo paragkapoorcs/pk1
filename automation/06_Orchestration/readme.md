@@ -271,3 +271,7 @@ start_pipeline_task1 \>\> start_pipeline_task2
 1.  Composer instance will be created
 
 2.  Pipeline workflow will be updated and ready for the run
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
