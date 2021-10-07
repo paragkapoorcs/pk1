@@ -140,3 +140,8 @@ This folder contains the combine script to run L0 cdf-piplines provided
 in repo.
 
 **orchestration** :- In this will be able to run the pipeline as per the scheduled.
+
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
