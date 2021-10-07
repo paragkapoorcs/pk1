@@ -34,7 +34,7 @@ resource "google_bigquery_dataset" "bq-data-set" {
         }
 }
 
-resource "google_bigquery_dataset" "bq-data-set" {
+resource "google_bigquery_dataset" "bq-data-set_dimention" {
      dataset_id                      = var.dimention_dataset
      default_partition_expiration_ms = 0
      delete_contents_on_destroy      = false
@@ -64,7 +64,7 @@ resource "google_bigquery_dataset" "bq-data-set" {
         }
 }
 
-resource "google_bigquery_dataset" "bq-data-set" {
+resource "google_bigquery_dataset" "bq-data-set_fact" {
      dataset_id                      = var.fact_dataset
      default_partition_expiration_ms = 0
      delete_contents_on_destroy      = false

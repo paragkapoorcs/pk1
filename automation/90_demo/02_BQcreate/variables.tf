@@ -19,12 +19,12 @@ variable "datasetmain_name" {
   default = "finalodpsap"
 }
 
-variable "dimention_dataset" {
+variable "dimentions_dataset" {
   description = "Dimention Dataset Name"
   default = "finaldimenodpsap"
 }
 
-variable "dimention_name" {
+variable "dimentions_name" {
   description = "Dimention Frendly Name"
   default = "finaldimenodpsap"
 }

@@ -34,12 +34,12 @@ resource "google_bigquery_dataset" "bq-data-set" {
         }
 }
 
-resource "google_bigquery_dataset" "bq-dimenttions" {
-     dataset_id                      = var.dimention_dataset
+resource "google_bigquery_dataset" "bq-dimentions" {
+     dataset_id                      = var.dimentions_dataset
      default_partition_expiration_ms = 0
      delete_contents_on_destroy      = false
      description                     = "SCM Dataset Demo"
-     friendly_name                   = var.dimention_name
+     friendly_name                   = var.dimentions_name
      labels                          = {
          "env" = "default"
         }
