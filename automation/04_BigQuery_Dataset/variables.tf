@@ -4,6 +4,18 @@
 #Terms section of the the Service Specific Terms set forth at 
 #https://cloud.google.com/terms/service-terms#general-service-terms
 
+
+#variable "project_id" {
+#  description = "Project where the dataset and table are created."
+#}
+
+variable "delete_contents_on_destroy" {
+  description = "(Optional) If set to true, delete all the tables in the dataset when destroying the resource; otherwise, destroying the resource will fail if tables are present."
+  type        = bool
+  default     = null
+}
+
+
 variable "project_id" {
   description = "Google Cloud Project ID"
   default = "sap-adapter"

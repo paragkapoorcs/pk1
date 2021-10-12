@@ -203,6 +203,12 @@
 | division_order_header | STRING |  |
 | goods_issue_delay | NUMERIC |  |
 | actual_goods_issue_delay | NUMERIC |  |
+| confirmation_status | STRING |  |
+| billing_status_order_related | STRING |  |
+| billing_status_delivery_related | STRING |  |
+| overall_processing_status | STRING |  |
+| overall_deliver_status | STRING |  |
+| delivery_status | STRING |  |
 | input_last_update_date | DATETIME |  |
 | finalmd5key | STRING |  |
 | dw_active_indicator | STRING |  |

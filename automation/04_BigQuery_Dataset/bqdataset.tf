@@ -15,6 +15,26 @@ resource "google_bigquery_dataset" "bq-data-set" {
         }
      location                        = "EU"
      project                         = var.project_id
+     tables = [
+    {
+      table_id           = "l1_audit_table",
+      schema             = file("l1_audit_table_param.json"),
+      time_partitioning  = null,
+      range_partitioning = null,
+      expiration_time    = 2524604400000, # 2050/01/01
+      clustering         = [],
+      labels = {
+        env      = "devops"
+        billable = "true"
+        owner    = "joedoe"
+      },
+    }
+  ]
+  dataset_labels = {
+    env      = "dev"
+    billable = "true"
+  }
+
 
      access {
          role          = "OWNER"
