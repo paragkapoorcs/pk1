@@ -108,6 +108,12 @@
 | fiscal_year_variant | STRING |  |
 | goods_issue_delay | NUMERIC |  |
 | campaign_order_item | STRING |  |
+| confirmation_status | STRING |  |
+| billing_status_order_related | STRING |  |
+| billing_status_delivery_related | STRING |  |
+| overall_processing_status | STRING |  |
+| overall_deliver_status | STRING |  |
+| delivery_status | STRING |  |
 | input_last_update_date | DATETIME |  |
 | finalmd5key | STRING |  |
 | dw_active_indicator | STRING |  |
