@@ -48,7 +48,7 @@ CREATE TABLE `${ProjectID}.${TargetDatasetNames3}.inventory`
 CREATE TABLE `${ProjectID}.${TargetDatasetNames3}.legal_entity`
 (
   uuid STRING OPTIONS(description="Universal ID"),
-  legal_enity_uid STRING OPTIONS(description="Unique id"),
+  legal_entity_uid STRING OPTIONS(description="Unique id"),
   legal_entity_type STRING OPTIONS(description="Customer, Supplier, Company Code, Plant, Sales Org"),
   legal_entity_id STRING OPTIONS(description="Legal Entity Unique ID for a particular type of Legal Entity"),
   organization_level STRING OPTIONS(description="Organization Level is representing any organization unit, this can be a plant, sales organization or a company code."),

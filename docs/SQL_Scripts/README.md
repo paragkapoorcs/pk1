@@ -13,6 +13,7 @@ Table structures of the L1 and L2 layer along with audit table.
 | L1_table_structure_facts.sql | L1 layer Facts table structures. |
 | L1_audit_table.sql | L1 layer audit table to hold the l1 layer update information. |
 | L2_table_structure.sql  | L2 Canonical layer table structures.|
+| L2_canonical_views.sql | L2 Canonical layer view to load the L2 layer tables.|
 
 
 ### Parameter variable for each script.
@@ -44,7 +45,17 @@ Table structures of the L1 and L2 layer along with audit table.
 | Variable Name | Value |
 | ------ | ------ |
 | ProjectID | Project ID (sap-adapter) |
-| TargetDatasetNames2 | L2 layer tables Dataset Name (scl_canonical) |
+| TargetDatasetNames3 | L2 layer tables Dataset Name (scl_canonical) |
+
+
+**L2_canonical_view**
+
+| Variable Name | Value |
+| ------ | ------ |
+| ProjectID | Project ID (sap-adapter) |
+| TargetDatasetNames1 | Dimension tables Dataset Name (scl_sap_dimension)  |
+| TargetDatasetNames2 | Fact tables Dataset Name (scl_sap_facts) |
+| TargetDatasetNames3 | Canonical tables Dataset Name (scl_canonical) |
 
 Copyright 2021 Google Inc. All rights reserved.
 

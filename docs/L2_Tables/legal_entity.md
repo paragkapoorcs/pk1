@@ -6,7 +6,7 @@
 | Column Name | Data Type | Details |
 |---|---|---|
 | uuid | STRING | Universal ID |
-| legal_enity_uid | STRING | Unique  |
+| legal_entity_uid | STRING | Unique  |
 | legal_entity_type | STRING | Customer, Supplier, Company Code, Plant, Sales Org |
 | legal_entity_id | STRING | Legal Entity Unique ID for a particular type of Legal Entity |
 | organization_level | STRING | Organization Level is representing any organization unit, this can be a plant, sales organization or a company code.  |
