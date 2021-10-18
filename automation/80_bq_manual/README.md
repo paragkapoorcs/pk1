@@ -1,5 +1,5 @@
-# terraform-google-bigquery basic_bq
-The basic_bq example uses the root terraform-google-bigquery module to deploy a single dataset and a table with a basic schema. This example is a good reference to understand and test the module usage.
+# Google Bigquery Basic_bq_dataset Table
+The basic_bq example uses the root terraform-google-bigquery module to deploy a single dataset and a table with a basic schema. 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
