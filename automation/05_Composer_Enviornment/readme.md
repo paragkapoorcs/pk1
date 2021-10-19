@@ -23,8 +23,6 @@ module "composer" {
 }
 ```
 
-Functional examples are included in the
-[examples](./examples/) directory.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
