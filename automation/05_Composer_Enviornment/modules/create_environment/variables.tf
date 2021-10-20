@@ -67,13 +67,13 @@ variable "zone" {
 variable "node_count" {
   description = "Number of worker nodes in Cloud Composer Environment."
   type        = number
-  default     = 10
+  default     = 5
 }
 
 variable "machine_type" {
   description = "Machine type of Cloud Composer nodes."
   type        = string
-  default     = "n1-standard-8"
+  default     = "n1-standard-4"
 }
 
 variable "composer_service_account" {
