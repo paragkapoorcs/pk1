@@ -1,4 +1,4 @@
-# terraform-google-composer
+# Google-Cloud-Composer
 
 This module makes it easy to create a Cloud Composer Environment. As the module develops, this README should be updated.
 
