@@ -19,6 +19,15 @@ locals {
   subnetwork_region  = var.subnetwork_region != "" ? var.subnetwork_region : join("-", slice(split("-", var.zone), 0, 2))
 }
 
+#data "google_composer_image_versions" "all" {
+#  region = var.region
+#  project = var.project_id
+#}
+terraform {
+ required_providers {
+    google = "=3.86.0"
+  }
+}
 resource "google_composer_environment" "composer_env" {
   provider = google-beta
 

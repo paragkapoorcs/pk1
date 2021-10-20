@@ -27,7 +27,7 @@ variable "composer_env_name" {
 variable "region" {
   description = "Region where the Cloud Composer Environment is created."
   type        = string
-  default     = "us-central1"
+  default     = "europe-west1"
 }
 
 variable "labels" {
@@ -61,13 +61,13 @@ variable "subnetwork_region" {
 variable "zone" {
   description = "Zone where the Cloud Composer nodes are created."
   type        = string
-  default     = "us-central1-f"
+  default     = "europe-west1-b"
 }
 
 variable "node_count" {
   description = "Number of worker nodes in Cloud Composer Environment."
   type        = number
-  default     = 3
+  default     = 10
 }
 
 variable "machine_type" {
@@ -85,13 +85,14 @@ variable "composer_service_account" {
 variable "disk_size" {
   description = "The disk size for nodes."
   type        = string
-  default     = "100"
+  default     = null
 }
 
 variable "oauth_scopes" {
   description = "Google API scopes to be made available on all node."
   type        = set(string)
-  default     = ["https://www.googleapis.com/auth/cloud-platform"]
+  #default     = ["https://www.googleapis.com/auth/cloud-platform"]
+  default     = null
 }
 
 variable "tags" {
@@ -133,19 +134,19 @@ variable "env_variables" {
 variable "image_version" {
   type        = string
   description = "The version of the aiflow running in the cloud composer environment."
-  default     = null
+  default     = "composer-1.17.3-airflow-2.1.2"
 }
 
 variable "pypi_packages" {
   type        = map(string)
   description = " Custom Python Package Index (PyPI) packages to be installed in the environment. Keys refer to the lowercase package name (e.g. \"numpy\")."
-  default     = {}
+  default     = {"apache-airflow-providers-google" = ">=5.1.0"}
 }
 
 variable "python_version" {
   description = "The default version of Python used to run the Airflow scheduler, worker, and webserver processes."
   type        = string
-  default     = "3"
+  default     = null
 }
 
 variable "cloud_sql_ipv4_cidr" {
