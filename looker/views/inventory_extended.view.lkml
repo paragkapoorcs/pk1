@@ -5,9 +5,9 @@ view: inventory_extended {
           inventory.inventory_ownership  AS inventory_inventory_ownership,
           COALESCE(SUM(( inventory.inventory_quantity * product.product_cost)), 0) AS inventory_total_inventory_value,
           COALESCE(SUM(inventory.inventory_quantity ), 0) AS inventory_total_inventory_quantity
-      FROM `dev-cs-1.scl_canonical.product`
+      FROM `@{PROJECT}.@{FACT_DATASET}.product`
            AS product
-      INNER JOIN `dev-cs-1.scl_canonical.inventory`
+      INNER JOIN `@{PROJECT}.@{FACT_DATASET}.inventory`
            AS inventory ON product.product_uid = inventory.product_uid
       GROUP BY
           1,
