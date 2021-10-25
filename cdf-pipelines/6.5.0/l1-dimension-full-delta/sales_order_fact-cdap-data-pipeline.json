@@ -56,7 +56,10 @@
                         "schema": ""
                     }
                 ],
-                "id": "Merge-Statement"
+                "id": "Merge-Statement",
+                "type": "action",
+                "label": "Merge Statement",
+                "icon": "fa-plug"
             },
             {
                 "name": "Update Audit Table",
@@ -89,7 +92,10 @@
                         "schema": ""
                     }
                 ],
-                "id": "Update-Audit-Table"
+                "id": "Update-Audit-Table",
+                "type": "action",
+                "label": "Update Audit Table",
+                "icon": "fa-plug"
             }
         ],
         "schedule": "0 * * * *",
