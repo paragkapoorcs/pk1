@@ -1,10 +1,10 @@
 # **Dataproc Profile**
 
-1.  Deploy CDF Dataproc profile using (IAC) Terraform.
+Deploy CDF Dataproc profile using Terraform.
 
 # **Specifications**
 
-The dataproc profile should be created inside the DataFusion Instance.
+The dataproc profile is created inside the DataFusion Instance.
 
 **Tools**
 
@@ -26,13 +26,13 @@ Files to be validated during the procedure.
 
 **Actions to be executed:**
 
-1.  Terraform Init ( To validate the plugin of provider)
+1.  Terraform Init (To validate the plugin of provider)
 
-2.  Terraform Plan ( To validate the execution plan)
+2.  Terraform Plan (To validate the execution plan)
 
-3.  Terraform Apply ( To execute the plan)
+3.  Terraform Apply (To execute the plan)
 
-4.  Terraform Destroy ( To destroy the created Infrastructure).
+4.  Terraform Destroy (To destroy the created Infrastructure).
 
 **Step4**: Execute the script
 
@@ -42,7 +42,7 @@ Files to be validated during the procedure.
 
 3). Terraform apply
 
-**Note :- Variables will Be asked while running of the script
+**Note** :- Variables will Be asked while running of the script
 
 **Observations:**
 
