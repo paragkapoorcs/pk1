@@ -9,7 +9,7 @@ how to use it
 
 # **Version**
 
-1.  Version 1.0
+Version 1.0
 
 # **Tools** 
 
