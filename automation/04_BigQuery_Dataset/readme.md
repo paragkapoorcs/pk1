@@ -26,7 +26,7 @@ Organization: Google
 
 **Step 2**: Create Dataset scm_dataset
 
-**Step 2.1).**Create a script for namespace creation (bqdatasets.tf)
+**Step 2.1**: Create a script for namespace creation (bqdatasets.tf)
 
 **resource \"google_bigquery_dataset\" \"dev-cs-1\" {**
 
