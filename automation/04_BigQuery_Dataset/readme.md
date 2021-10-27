@@ -4,12 +4,11 @@
 
 # **Overview**
 
-The POC is to present the Terraform IAC on Compute engine creation ,
-With required VPC Network, Firewall Rules, IP and Zones.
+The POC is to present the Terraform IAC on Compute engine creation with required VPC Network, Firewall Rules, IP, and Zones.
 
 # **Goals**
 
-1.  Deploy BigQurey Datasets using (IAC) Terraform.
+Deploy BigQurey Datasets using Terraform.
 
 # **Specifications**
 
@@ -21,12 +20,11 @@ Organization: Google
 
 **Tools: Run Locally from gcloud SDK**.
 
-**Step1**: Login to the cloud console and check SQL Workspace under
-BigQuery.
+**Step 1**: Login to the cloud console and check SQL Workspace under BigQuery.
 
 ![](.//media/image3.png)
 
-**Step2**: Create Dataset scm_dataset
+**Step 2**: Create Dataset scm_dataset
 
 **Step 2.1).**Create a script for namespace creation (bqdatasets.tf)
 
@@ -86,7 +84,7 @@ BigQuery.
 
 **}**
 
-**Step4:** Run the scripts from the gcloud sdk.
+**Step4:** Run the scripts from the gcloud SDK.
 
 ![](.//media/image4.png)
 
@@ -96,13 +94,13 @@ Files to be validated during the procedure.
 
 **Actions to be executed:**
 
-1.  Terraform Init ( To validate the plugin of provider)
+1.  Terraform Init (To validate the plugin of provider)
 
-2.  Terraform Plan ( To validate the execution plan)
+2.  Terraform Plan (To validate the execution plan)
 
-3.  Terraform Apply ( To execute the plan)
+3.  Terraform Apply (To execute the plan)
 
-4.  Terraform Destroy ( To destroy the created Infrastructure).
+4.  Terraform Destroy (To destroy the created infrastructure).
 
 **Step5**: Execute the script
 
@@ -130,4 +128,4 @@ Verify as below
 
 Copyright 2021 Google Inc. All rights reserved.
 
-The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
+The use of this software is governed by the Pre-GA Offering Terms section of the the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms).
