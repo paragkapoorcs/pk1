@@ -2,29 +2,29 @@
 
 This module handle opinionated Google Cloud Platform Data Fusion instances.
 
-1.  Deploy CDF instance using (IAC) Terraform.
+Deploy CDF instance using Terraform.
 
 # **Specifications**
 
-The CDF instance should be created along with Instance ID, Private IP Allocation, Region, And Service Account, Basic or Enterprise or Developer, And enable stack driver logs.
+The CDF instance is created along with Instance ID, Private IP allocation, Region, Service Account, Basic/Enterprise/Developer, and enable stack driver logs.
 
 # **Tools** 
 
-Integrate Tool Google Cloud SDK,  Terraform to Deploy the IAC**.
+Integrate Tool Google Cloud SDK,  Terraform to Deploy the **IAC**.
 
-**Step1** 
+**Step 1** 
 
 Login to cloud console page and create/validate the project ID and Access.
 
-**Step2** 
+**Step 2** 
 
 Validate the access in IAM to execute the creation of resources from terraform , Namely service account will execute the task.
 
-**Step3** 
+**Step 3** 
 
 Create CDF instance using Terraform
 
-**Step4** 
+**Step 4** 
 
 Files to be validated during the procedure.
 
@@ -34,25 +34,25 @@ Files to be validated during the procedure.
 
 **Actions to be executed:**
 
-1.  Terraform Init ( To validate the plugin of provider)
+1.  Terraform Init (To validate the plugin of provider)
 
-2.  Terraform Plan ( To validate the execution plan)
+2.  Terraform Plan (To validate the execution plan)
 
-3.  Terraform Apply ( To execute the plan)
+3.  Terraform Apply (To execute the plan)
 
-**Step5** 
+**Step 5** 
 
-Execute the code using terraform apply
+Execute the code using terraform apply.
 
-**Step6** 
+**Step 6** 
 
 Code executed successfully and CDF instance is created.
 
 **Observations:**
 
-1.  CDF instance created without instance ID - The Instance name will setup Instance ID
+CDF instance created without instance ID - The Instance name sets up Instance ID.
 
 Copyright 2021 Google Inc. All rights reserved.
 
-The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at
-https://cloud.google.com/terms/service-terms#general-service-terms
+The use of this software is governed by the Pre-GA Offering Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms).
+
