@@ -14,15 +14,15 @@ Integrate Tool Google Cloud SDK,  Terraform to deploy the **IAC**.
 
 **Step 1** 
 
-Login to cloud console page and create/validate the project ID and Access.
+Login to cloud console page. Create/validate the project ID and access.
 
 **Step 2** 
 
-Validate the access in IAM to execute the creation of resources from terraform , Namely service account will execute the task.
+Validate the access in IAM to execute the creation of resources from terraform, namely service account will execute the task.
 
 **Step 3** 
 
-Create CDF instance using Terraform
+Create CDF instance using Terraform.
 
 **Step 4** 
 
