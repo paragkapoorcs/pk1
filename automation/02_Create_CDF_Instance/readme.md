@@ -10,7 +10,7 @@ The CDF instance is created along with Instance ID, Private IP allocation, Regio
 
 # **Tools** 
 
-Integrate Tool Google Cloud SDK,  Terraform to Deploy the **IAC**.
+Integrate Tool Google Cloud SDK,  Terraform to deploy the **IAC**.
 
 **Step 1** 
 
