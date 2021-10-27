@@ -264,14 +264,14 @@ SELECT sof.sales_order_uuid as uuid
 ,CAST(sof.delivered_quantity AS INT64) as received_quantity
 ,CAST(NULL AS INT64) as rejected_quantity
 ,CAST(NULL AS STRING) AS rejection_code
-,CAST(NULL AS STRING) AS order_uom
+,sof.sales_unit AS order_uom
 ,CAST(sof.net_price_sales_quantity AS FLOAT64) as sales_price
-,CAST(NULL AS STRING) as sales_price_currency
+,sof.document_currency as sales_price_currency
 ,CAST(sof.requested_delivery_date AS DATE) AS requested_delivery_date
 ,CAST(NULL AS DATE) AS confirmed_delivery_date
 ,CAST(sof.actual_goods_movement_date AS DATE) AS actual_delivery_date
-,CAST(NULL AS DATE) AS goodsissue_date_requested
-,CAST(NULL AS DATE) AS goodsissue_date_confirmed
+,CAST(sof.actual_goods_movement_date AS DATE) AS goodsissue_date_requested
+,CAST(sof.actual_goods_movement_date AS DATE) AS goodsissue_date_confirmed
 ,CAST(sof.actual_goods_movement_date AS DATE) AS goodsissue_date_actual
 ,CAST(NULL AS STRING) as status
 ,CAST(NULL AS STRING) as order_block
@@ -293,11 +293,11 @@ where sof.dw_active_indicator = 'Y'
 UNION ALL 
 SELECT pof.purchase_order_uuid as uuid
 ,pof.purchase_order_key AS order_uid
-,'PURCHASE' as order_Category
+,'PURCHASE' as order_category
 ,pof.purchasing_document_type as order_type
 ,pof.purchasing_document_number as order_id
 ,pof.item_number as item_id
-,CAST(NULL AS STRING) as schedule_id
+,pof.schedule_line as schedule_id
 ,'PRODUCT' || '-' || pof.material_key as product_uid
 ,'PLANT' || '-' || pof.plant_key as location_uid
 ,'SUPPLIER' || '-' || pof.supplier_purchase_org_key as key_legal_entity_uid
@@ -306,20 +306,20 @@ SELECT pof.purchase_order_uuid as uuid
 ,CAST(pof.order_quantity as INT64) as requested_quantity
 ,CAST(pof.order_quantity as INT64) as confirmed_quantity
 ,CAST(pof.order_quantity - pof.current_goods_receipt_quantity as INT64) as open_quantity
-,CAST(NULL AS INT64) as delivery_quantity
-,CAST(NULL AS INT64) as shipping_quantity
+,CAST(pof.current_goods_receipt_quantity AS INT64) as delivery_quantity
+,CAST(pof.current_goods_receipt_quantity AS INT64) as shipping_quantity
 ,CAST(pof.current_goods_receipt_quantity AS INT64) as received_quantity
 ,CAST(NULL AS INT64) as rejected_quantity
 ,CAST(NULL AS STRING) AS rejection_code
 ,CAST(NULL AS STRING) AS order_uom
-,CAST(NULL AS FLOAT64) as sales_price
-,CAST(NULL AS STRING) as sales_price_currency
-,CAST(pof.purchasing_document_date AS DATE) AS requested_delivery_date
-,CAST(pof.purchasing_document_date AS DATE) AS confirmed_delivery_date
-,CAST(NULL AS DATE) AS actual_delivery_date
-,CAST(NULL AS DATE) AS goodsissue_date_requested
-,CAST(NULL AS DATE) AS goodsissue_date_confirmed
-,CAST(NULL AS DATE) AS goodsissue_date_actual
+,CAST(pof.net_order_price AS FLOAT64) as sales_price
+,CAST(pof.local_currency AS STRING) as sales_price_currency
+,CAST(pof.delivery_date AS DATE) AS requested_delivery_date
+,CAST(pof.delivery_date AS DATE) AS confirmed_delivery_date
+,CAST(pof.goods_receipts_date AS DATE) AS actual_delivery_date
+,CAST(pof.goods_receipts_date AS DATE) AS goodsissue_date_requested
+,CAST(pof.goods_receipts_date AS DATE) AS goodsissue_date_confirmed
+,CAST(pof.goods_receipts_date AS DATE) AS goodsissue_date_actual
 ,CAST(NULL AS STRING) as status
 ,CAST(NULL AS STRING) as order_block
 ,CAST(NULL AS STRING) as preceding_document
@@ -350,23 +350,23 @@ SELECT df.delivery_uuid as uuid
 ,'CUSTOMER' || '-' || df.customer_sales_org_key as key_legal_entity_uid
 ,'CUSTOMER' || '-' || df.customer_key as receiving_location_uid
 ,'PLANT' || '-' || df.shipping_point as shipping_location_uid
-,CAST(NULL as INT64) as requested_quantity
-,CAST(NULL as INT64) as confirmed_quantity
+,CAST(df.delivery_quantity as INT64) as requested_quantity
+,CAST(df.delivery_quantity - df.actual_delivery_quantity as INT64) as confirmed_quantity
 ,CAST(df.actual_delivery_quantity as INT64) as open_quantity
-,CAST(NULL AS INT64) as delivery_quantity
-,CAST(NULL AS INT64) as shipping_quantity
-,CAST(NULL AS INT64) as received_quantity
+,CAST(df.actual_delivery_quantity AS INT64) as delivery_quantity
+,CAST(df.actual_delivery_quantity AS INT64) as shipping_quantity
+,CAST(df.actual_delivery_quantity AS INT64) as received_quantity
 ,CAST(NULL AS INT64) as rejected_quantity
 ,CAST(NULL AS STRING) AS rejection_code
 ,CAST(NULL AS STRING) AS order_uom
 ,CAST(NULL AS FLOAT64) as sales_price
 ,CAST(NULL AS STRING) as sales_price_currency
-,CAST(NULL AS DATE) AS requested_delivery_date
-,CAST(NULL AS DATE) AS confirmed_delivery_date
-,CAST(NULL AS DATE) AS actual_delivery_date
-,CAST(NULL AS DATE) AS goodsissue_date_requested
-,CAST(NULL AS DATE) AS goodsissue_date_confirmed
-,CAST(NULL AS DATE) AS goodsissue_date_actual
+,CAST(df.delivery_date AS DATE) AS requested_delivery_date
+,CAST(df.delivery_date AS DATE) AS confirmed_delivery_date
+,CAST(df.actual_goods_movement_date AS DATE) AS actual_delivery_date
+,CAST(df.actual_goods_movement_date AS DATE) AS goodsissue_date_requested
+,CAST(df.actual_goods_movement_date AS DATE) AS goodsissue_date_confirmed
+,CAST(df.actual_goods_movement_date AS DATE) AS goodsissue_date_actual
 ,CAST(NULL AS STRING) as status
 ,CAST(NULL AS STRING) as order_block
 ,CAST(NULL AS STRING) as preceding_document
@@ -394,17 +394,14 @@ SELECT pof.production_order_uuid as uuid
 ,CAST(NULL AS STRING) as schedule_id
 ,'PRODUCT' || '-' || pof.material_key as product_uid
 ,'PLANT' || '-' || pof.plant_key as location_uid
-,CASE WHEN LENGTH(TRIM(pof.mrp_controller_buyer)) > 0
-      THEN 'CUSTOMER' || '-' || pof.mrp_controller_buyer 
-      ELSE NULL
- END as key_legal_entity_uid
+,CAST(NULL AS STRING) as key_legal_entity_uid
 ,'PLANT' || '-' || pof.plant_key as receiving_location_uid
 ,'PLANT' || '-' || pof.plant_key as shipping_location_uid
 ,CAST(pof.order_item_quantity as INT64) as requested_quantity
 ,CAST(pof.order_item_quantity as INT64) as confirmed_quantity
 ,CAST(pof.order_item_quantity - pof.quantity_of_goods_received as INT64) as open_quantity
 ,CAST(pof.order_item_quantity AS INT64) as delivery_quantity
-,CAST(NULL AS INT64) as shipping_quantity
+,CAST(pof.order_item_quantity AS INT64) as shipping_quantity
 ,CAST(pof.quantity_of_goods_received AS INT64) as received_quantity
 ,CAST(NULL AS INT64) as rejected_quantity
 ,CAST(NULL AS STRING) AS rejection_code
@@ -419,18 +416,21 @@ SELECT pof.production_order_uuid as uuid
 ,CAST(pof.actual_finish_date AS DATE) AS goodsissue_date_actual
 ,CAST(NULL AS STRING) as status
 ,CAST(NULL AS STRING) as order_block
-,CAST(pof.planned_order AS STRING) as preceding_document
+,CAST(NULL AS STRING) as preceding_document
 ,CAST(NULL AS STRING) as successor_document
 ,CAST(NULL AS STRING) as mode_of_transport
 ,CAST(NULL AS STRING) as route_id
 ,CAST(NULL AS STRING) as asset_id
 ,CAST(NULL AS STRING) as active
-,CAST(NULL AS STRING) as company_code
-,CAST(NULL AS STRING) as valuation_area
+,pd.company_code as company_code
+,pd.valuationion_area as valuation_area
 ,CAST(NULL AS DATE) as creation_Date
 ,CAST(NULL AS DATE) as change_Date
 FROM `${ProjectID}.${TargetDatasetNames2}.production_order_fact` pof
-where pof.dw_active_indicator = 'Y'
+left join `${ProjectID}.${TargetDatasetNames1}.plant_dimension` pd 
+on pd.plant_key = pof.plant_key
+and pd.dw_active_indicator = 'Y'
+where pof.dw_active_indicator = 'Y';
 
 
 CREATE OR REPLACE VIEW `${ProjectID}.${TargetDatasetNames3}.product_vw`
@@ -469,5 +469,5 @@ SELECT material_uuid as uuid
       ,CAST(NULL AS STRING) as product_hierarchy_level_2
       ,CAST(NULL AS STRING) as product_hierarchy_level_2_name
   FROM `${ProjectID}.${TargetDatasetNames2}.material_dimension`
-WHERE dw_active_indicator = 'Y'
+WHERE dw_active_indicator = 'Y';
 
