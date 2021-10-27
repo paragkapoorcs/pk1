@@ -102,17 +102,17 @@ Files to be validated during the procedure.
 
 4.  Terraform Destroy (To destroy the created infrastructure).
 
-**Step5**: Execute the script
+**Step 5**: Execute the script
 
-1). Terraform init
+1.  Terraform init
 
 ![](.//media/image5.png)
 
-2). Terraform plan
+2.  Terraform plan
 
 ![](.//media/image6.png)
 
-3). Terraform apply
+3.  Terraform apply
 
 ![](.//media/image7.png)
 
@@ -122,8 +122,7 @@ Verify as below
 
 **Observations:**
 
-1.  A blank BigQuery Dataset is created with the name scm_dataset as
-    > given in above shot
+A blank BigQuery Dataset is created with the name scm_dataset as given in above screenshot.
 
 
 Copyright 2021 Google Inc. All rights reserved.
