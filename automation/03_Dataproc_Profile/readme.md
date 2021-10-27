@@ -4,17 +4,17 @@ Deploy CDF Dataproc profile using Terraform.
 
 # **Specifications**
 
-The dataproc profile is created inside the DataFusion Instance.
+The dataproc profile is created inside the Data Fusion Instance.
 
 **Tools**
 
-Run Locally from gcloud SDK, & Terraform-cli.
+Run locally from gcloud SDK and Terraform-cli.
 
-**Step1**
+**Step 1**
 
 Login to cloud console and validate the datafusion name.
 
-**Step2** 
+**Step 2** 
 
 Files to be validated during the procedure.
 
@@ -32,23 +32,23 @@ Files to be validated during the procedure.
 
 3.  Terraform Apply (To execute the plan)
 
-4.  Terraform Destroy (To destroy the created Infrastructure).
+4.  Terraform Destroy (To destroy the created infrastructure).
 
-**Step4**: Execute the script
+**Step 4**: Execute the script
 
-1). Terraform init
+1.  Terraform init
 
-2). Terraform plan
+2.  Terraform plan
 
-3). Terraform apply
+3.  Terraform apply
 
-**Note** :- Variables will Be asked while running of the script
+**Note**: Variables is asked while running of the script.
 
 **Observations:**
 
-1.  Dataproc-Profile created with the name as given in variable
+Dataproc-Profile created with the name as given in variable.
 
 
 Copyright 2021 Google Inc. All rights reserved.
 
-The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
+The use of this software is governed by the Pre-GA Offering Terms section of the the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms). 
