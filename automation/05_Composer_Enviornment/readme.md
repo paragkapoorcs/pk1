@@ -1,10 +1,10 @@
 # Terraform Google Composer
 
-This module makes it easy to create a Cloud Composer Environment. As the module develops, this README should be updated.
+This module makes it easy to create a Cloud Composer Environment.
 
 The resources/services/activations/deletions that this module creates/triggers are:
 
-- Create a GCP Composer Environment
+Create a GCP Composer Environment
 
 ## Usage
 
@@ -49,7 +49,7 @@ module "composer" {
 
 ## Requirements
 
-These sections describe requirements for using this module.
+Following sections describe requirements for using this module:
 
 ### Software
 
@@ -78,8 +78,11 @@ service account with the necessary roles applied.
 A project with the following APIs enabled must be used to host the
 resources of this module:
 
-- Cloud Composer API: `composer.googleapis.com`
+Cloud Composer API: `composer.googleapis.com`
 
 The [Project Factory module][project-factory-module] can be used to
 provision a project with the necessary APIs enabled.
 
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms).
