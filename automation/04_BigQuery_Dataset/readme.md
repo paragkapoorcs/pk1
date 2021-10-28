@@ -18,7 +18,7 @@ Project Details: dev-cs-1
 
 Organization: Google
 
-**Tools: Run Locally from gcloud SDK**.
+**Tools: Run Locally from gcloud SDK**
 
 **Step 1**: Login to the cloud console and check SQL Workspace under BigQuery.
 
