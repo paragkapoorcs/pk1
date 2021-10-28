@@ -2,7 +2,7 @@
 
 This module makes it easy to create a Cloud Composer Environment. As the module develops, this README should be updated.
 
-The resources/services/activations/deletions that this module will create/trigger are:
+The resources/services/activations/deletions that this module creates/triggers are:
 
 - Create a GCP Composer Environment
 
