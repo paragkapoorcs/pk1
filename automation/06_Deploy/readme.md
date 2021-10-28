@@ -2,27 +2,26 @@
 
 09.09.2021
 
-Parag Kapoor, Pradeep C.H
+Parag Kapoor, Pradeep C.H <Content update required>
 
 **SCM Twin**
 
 # **Overview**
 
-The document is to present the Creation of the Bigquery dataset with
-Deployment & Streaming of the Pipeline through Terraform & Shell Script
-.
+The document is to present the creation of the Bigquery dataset with
+Deployment and Streaming of the Pipeline through Terraform and Shell Script.
 
 # **Goals**
 
-1.  Create BQ Dataset's.
+1.  Create BQ Dataset's
 
-2.  Deploy Pipelines.
+2.  Deploy Pipelines
 
-3.  Streaming of Pipelines.
+3.  Streaming of Pipelines
 
 # **Pre-Requisites** 
 
-1.  Google cloud SDK.
+1.  Google cloud SDK
 
 2.  Terraform 1.0.4
 
@@ -34,7 +33,7 @@ Organization: Google
 
 **Tools: Run Locally from gcloud SDK, Terraform**
 
-**Step1**: Login to cloud console and validate the datafusion name.
+**Step1**: Login to cloud console and validate the datafusion name
 
 ![](.//media/image3.png)**Step2:** Create a script for bq Dataset
 creation, Deployment & Streaming Call For Pipeline (deploy.tf)
@@ -109,11 +108,11 @@ command = \"/bin/bash start.sh\"
 
 **Notes \***
 
-1.  Set the name of the data set according to the requirements
+1.  Set the name of the data set according to the requirements.
 
-2.  Set the Roles as per the requirements
+2.  Set the Roles as per the requirements.
 
-**Step3:** Create the shell Script file the pipeline (start.sh).
+**Step3:** Create the shell script file the pipeline (start.sh).
 
 gcloud auth login \$userid
 
@@ -159,13 +158,13 @@ Files to be validated during the procedure.
 
 **Actions to be executed:**
 
-1.  Terraform Init ( To validate the plugin of provider)
+1.  Terraform Init (To validate the plugin of provider)
 
-2.  Terraform Plan ( To validate the execution plan)
+2.  Terraform Plan (To validate the execution plan)
 
-3.  Terraform Apply ( To execute the plan)
+3.  Terraform Apply (To execute the plan)
 
-4.  Terraform Destroy ( To destroy the created Infrastructure).
+4.  Terraform Destroy (To destroy the created Infrastructure)
 
 **Step5**: Execute the script
 
@@ -190,4 +189,4 @@ Verify as below
 
 Copyright 2021 Google Inc. All rights reserved.
 
-The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
+The use of this software is governed by the Pre-GA Offering Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms). 
