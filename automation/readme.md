@@ -134,7 +134,7 @@ This folder consists of the following two scripts:
 This folder contains the combine script to run L0 cdf-piplines provided
 in repo.
 
-**orchestration** : Run the pipeline as per the schedule.
+**orchestration**: Run the pipeline as per the schedule.
 
 
 Copyright 2021 Google Inc. All rights reserved.
