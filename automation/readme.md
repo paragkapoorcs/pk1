@@ -23,9 +23,9 @@ Integrate Tool Github, Terraform, Google Cloud SDK, Shell, and Composer.
 -   BigQuery and Pipeline Deploy
 -   Orchestration
 
-**Before Installtion** :- Setup the pre-requesites for the Automation.
+**Before Installtion**: Setup the pre-requesites for the Automation.
 
-**Create CDF Instance** :- Create the new instance on Cloud Data Fusion.
+**Create CDF Instance**: Create the new instance on Cloud Data Fusion.
 
 After creating the CDF instance we need to connect to SAP resource. 
 
@@ -105,9 +105,9 @@ Below are the steps to create the Project Peering:
 
     -   Then click **Create** (it will create the tenant peered network).
 
-**Dataproc Profile** : Create the Dataproc profile for running the pipelines. 
+**Dataproc Profile**: Create the Dataproc profile for running the pipelines. 
 
-**BigQuery and Pipeline Deploy** :- This script helps you to create the BigQuery Dataset and deployment of the Pipelines.
+**BigQuery and Pipeline Deploy**: This script helps you to create the BigQuery Dataset and deployment of the Pipelines.
 
 This folder consists of the following two scripts: 
 1. Bqdatase.tf (terraform file)
