@@ -8,7 +8,7 @@ The POC is to present the Orchestration of the Pipeline's.
 
 # **Goals**
 
-1.  Deploy workflow to schedule and run the Pipeline's
+Deploy workflow to schedule and run the Pipeline's.
 
 # **Specifications**
 
@@ -20,43 +20,43 @@ Organization: Google
 
 **Tools: Integrate Tool Github and Terraform cloud to deploy the IAC**.
 
-**Step1**: Login to cloud console page and create/validate the project
-ID and Access.
+**Step 1**: Login to cloud console page and create/validate the project
+ID and access.
 
 ![](.//media/image4.png)
 
-**Step2:** On the left pane of the menu Select composer.
+**Step 2:** On the left pane of the menu, select **composer**.
 
 ![](.//media/image7.png)
 
-**Step3**: Enable the API & Create the new environment with composer 2.
+**Step 3**: Enable the API and create the new environment with composer 2.
 
 ![](.//media/image8.png)
 
-**Step4**: Create the Composer (Apache Airflow) with appropriate
+**Step 4**: Create the **Composer** (Apache Airflow) with appropriate
 requirements.
 
-**Step5**: Now upload the file provided with the Orchestration Folder to
-the dag buckets by clicking DAG's
+**Step 5**: Click **DAGs**. Files provided with the Orchestration folder to
+the DAG buckets is uploaded. 
 
 ![](.//media/image3.png)
 
-**Step6**: Now open the Airflow webserver & the task will be assigned as
-per the files updated
+**Step 6**: Now open the Airflow webserver, the task gets assigned as
+per the files updated.
 
 ![](.//media/image5.png)
 
-**Step7**: To run the Task press the play button
+**Step 7**: To run the task, press the play button.
 
-Parameters to be set in the file before the uploading
+Parameters to be set in the file before the uploading.
 
 \'email\': \[\'paragkapoor\@google.com\'\],
 
 schedule_interval=**None**,
 
-Please set Mail Id for the notifications, & for the schedule interval
-Please use [[https://crontab.guru/]{.ul}](https://crontab.guru/) if not
-known how to set the cron job
+Please set email ID for the notifications, and schedule interval.
+Please use [[https://crontab.guru/]{.ul}](https://crontab.guru/), if you do not
+know how to set the cron job.
 
 Exmp schedule_interval=\'5 4 \* \* \*\',
 
@@ -262,10 +262,10 @@ start_pipeline_task1 \>\> start_pipeline_task2
 
 **Observations:**
 
-1.  Composer instance will be created
+1.  Composer instance is created.
 
-2.  Pipeline workflow will be updated and ready for the run
+2.  Pipeline workflow is updated and ready for the run.
 
 Copyright 2021 Google Inc. All rights reserved.
 
-The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
+The use of this software is governed by the Pre-GA Offering Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms).
