@@ -31,12 +31,14 @@ Project Details: sap-adapters
 
 Organization: Google
 
-**Tools: Run Locally from gcloud SDK, Terraform**
+**Tools: Run locally from gcloud SDK, Terraform**
 
-**Step1**: Login to cloud console and validate the datafusion name
+**Step 1:** Login to cloud console and validate the datafusion name
 
-![](.//media/image3.png)**Step2:** Create a script for bq Dataset
-creation, Deployment & Streaming Call For Pipeline (deploy.tf)
+![](.//media/image3.png)
+    
+**Step 2:** Create a script for bq Dataset
+creation, Deployment, and Streaming Call For Pipeline (deploy.tf)
 
 resource \"google_bigquery_dataset\" \"dev-cs\" {
 
@@ -106,13 +108,13 @@ command = \"/bin/bash start.sh\"
 
 }
 
-**Notes \***
+**Notes**
 
 1.  Set the name of the data set according to the requirements.
 
 2.  Set the Roles as per the requirements.
 
-**Step3:** Create the shell script file the pipeline (start.sh).
+**Step 3:** Create the shell script file the pipeline (start.sh).
 
 gcloud auth login \$userid
 
@@ -142,13 +144,13 @@ curl -X POST -H \"Authorization: Bearer \${AUTH_TOKEN}\"
 \"NumberOfRowsToFetch\"=\"\$NumberOfRowsToFetch\",
 \"Dataset\"=\"scmtwin_script\"}\'
 
-Notes \*
+**Notes**
 
-1.  Set the appropriate username, Project ID, CDF Instance ID, json with
+Set the appropriate username, Project ID, CDF Instance ID, json with
     > path (download at the time of cloning repo) and Macro's for
     > streaming the pipeline
 
-**Step4:** Run the scripts from the gcloud sdk.
+**Step 4:** Run the scripts from the gcloud sdk.
 
 Files to be validated during the procedure.
 
@@ -166,21 +168,21 @@ Files to be validated during the procedure.
 
 4.  Terraform Destroy (To destroy the created Infrastructure)
 
-**Step5**: Execute the script
+**Step 5**: Execute the script
 
-1). Terraform init
+1. Terraform init
 
 ![](.//media/image7.png)
 
-2). Terraform plan
+2. Terraform plan
 
 ![](.//media/image6.png)
 
-3). Terraform apply
+3. Terraform apply
 
 ![](.//media/image5.png)
 
-Verify as below
+4. Verify as below
 
 ![](.//media/image4.png)
 
