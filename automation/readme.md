@@ -1,11 +1,10 @@
 # **SCL - Digital Twin Automation**
 
-This guide describes how to deploy, configure, and run data pipelines that use the CDF & BigQuery. You can use a source for batch-based and delta-based data extraction in Cloud Data Fusion through Operational Data Provisioning (ODP).
+This guide describes how to deploy, configure, and run data pipelines that use the CDF and BigQuery. You can use a source for batch-based and delta-based data extraction in Cloud Data Fusion through Operational Data Provisioning (ODP).
 
-This Automation enables bulk data integration from various applications with Cloud Data Fusion. You can configure and execute bulk data transfers from DataSources.
+It enables bulk data integration from various applications with Cloud Data Fusion. You can configure and execute bulk data transfers from DataSources.
 
-This Document's Guides you to understand the Automation structure and
-how to use it
+This document guides you to understand the automation structure and the use of it. 
 
 # **Version**
 
@@ -13,7 +12,7 @@ Version 1.0
 
 # **Tools** 
 
-Integrate Tool Github, Terraform, Google Cloud SDK, Shell, Composer.
+Integrate Tool Github, Terraform, Google Cloud SDK, Shell, and Composer.
 
 # **Folder In sequential use**
 
@@ -21,22 +20,22 @@ Integrate Tool Github, Terraform, Google Cloud SDK, Shell, Composer.
 -   Create CDF Instance
 -   Tenant Project Peering
 -   Dataproc Profile
--   BigQuery & Pipeline Deploy
+-   BigQuery and Pipeline Deploy
 -   Orchestration
 
-**Before Installtion** :- In this will be able to setup the pre-requesites for the Automation
+**Before Installtion** :- Setup the pre-requesites for the Automation.
 
-**Create CDF Instance** :- In this will be able to create the new instance on Cloud Data Fusion
+**Create CDF Instance** :- Create the new instance on Cloud Data Fusion.
 
-After Creating the CDF instance we need to connect to SAP resource which required the below steps to be followed.
+After creating the CDF instance we need to connect to SAP resource. 
 
-steps to create and reuse secure macros
+Follow the below steps to create and reuse secure macros:
 
 [[https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys]{.ul}](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys)
 
 **Step 1:**
 
-Create HTTP call executor :
+Create HTTP call executor:
 
 **Method Name:** Put
 
@@ -60,33 +59,32 @@ Create HTTP call executor :
 
 **Step 2:**
 
-Call the secure keys in below format
+Call the secure keys in below format:
 
 ![](.//media/image5.png)
 
 For detailed information you can refer :
 [[https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys]{.ul}](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys)
 
-**Tenant Project Peering** :- In this will be able to connect the Cloud Data Fusion Instance to GCS Project
+**Tenant Project Peering**: You can connect the Cloud Data Fusion Instance to GCS Project.
 
-Below are the Steps to create the Project Peering
+Below are the steps to create the Project Peering:
 
--   In formation to be collected from the CDF Instance as per the below
-    > snapshot
+1.   Information to be collected from the CDF Instance as per the below screenshot.
 
 > ![](.//media/image6.png)
 >
-> 1). Instance ID
+> a. Instance ID
 >
-> 2). Region
+> b. Region
 >
-> 3). Service Account
+> c. Service Account
 >
-> 4). Tenant Project ID (double underlined)
+> d. Tenant Project ID (double underlined)
 > 
-> 5). Orchestration
+> e. Orchestration
 
--   Open the VPC Peering from the VPC Networks as below in the picture
+2.   Open the VPC Peering from the VPC Networks as below.
 
 > ![](.//media/image4.png)
 
@@ -94,35 +92,35 @@ Below are the Steps to create the Project Peering
 
 > ![](.//media/image3.png)
 
--   Fill the above information as below
+-   Fill the information as instructed below:
 
-    -   Name ( name of the peering network)
+    -   Name (name of the peering network)
 
     -   VPC Network (select your VPC network used for the SAP)
 
-    -   Select the Peering network as **in another project**
+    -   Select the Peering network as **in another project**.
 
-    -   Project ID of Tenant as collected above
+    -   Project ID of Tenant as collected above.
 
     -   VPC network name (It consist of instance-id-region)
 
-    -   Check on import & export custom routes
+    -   Check on import and export custom routes
 
-    -   Then click on Create (it will create the tenant peered network)
+    -   Then click **Create** (it will create the tenant peered network).
 
-**Dataproc Profile** :- In this will be able to create the Dataproc profile for the running of the pipeline 
+**Dataproc Profile** : Create the Dataproc profile for running the pipelines. 
 
-**BigQuery & Pipeline Deploy** :- This script helps you to Create the BigQuery Dataset, Deployment of the Pipelines.
+**BigQuery and Pipeline Deploy** :- This script helps you to create the BigQuery Dataset and deployment of the Pipelines.
 
-This folder consists of the two scripts 
+This folder consists of the following two scripts: 
 1. Bqdatase.tf (terraform file)
 2. Start.sh (shell script to call pipeline api's)
 3. Variable.sh
 -   Please use gcloud init before using the scripts.
 
--   Change the dataset name in bqdataset.tf according to the requirement there are three dataset one is for data load and other two are for dimension & facts
+-   Change the dataset name in bqdataset.tf according to the requirement. There are three datasets, one is for data load and other two are for dimensions and facts.
 
--   Set up the shell file for the execution of the pipelines
+-   Set up the shell file for the execution of the pipelines.
 
     -   Provide the cloud information
 
@@ -139,9 +137,9 @@ This folder consists of the two scripts
 This folder contains the combine script to run L0 cdf-piplines provided
 in repo.
 
-**orchestration** :- In this will be able to run the pipeline as per the scheduled.
+**orchestration** : Run the pipeline as per the schedule.
 
 
 Copyright 2021 Google Inc. All rights reserved.
 
-The use of this software is governed by the Pre-GA Offering Terms section of the the Service Specific Terms set forth at https://cloud.google.com/terms/service-terms#general-service-terms
+The use of this software is governed by the Pre-GA Offering Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms).
