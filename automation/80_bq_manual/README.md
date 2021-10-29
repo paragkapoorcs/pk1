@@ -6,7 +6,7 @@ The basic_bq example uses the root terraform-google-bigquery module to deploy a 
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| delete\_contents\_on\_destroy | (Optional) If set to true, delete all the tables in the dataset when destroying the resource; otherwise, destroying the resource will fail if tables are present. | `bool` | `null` | no |
+| delete\_contents\_on\_destroy | (Optional) If set to true, delete all the tables in the dataset when destroying the resource; if tables are present, destroying the resource fails. | `bool` | `null` | no |
 | project\_id | Project where the dataset and table are created. | `any` | n/a | yes |
 
 ## Outputs
@@ -25,3 +25,7 @@ Update the contents of `terraform.tfvars` to match your test environment.
 `terraform init`
 `terraform plan`
 `terraform apply -var-file terraform.tfvars`
+
+Copyright 2021 Google Inc. All rights reserved.
+
+The use of this software is governed by the Pre-GA Offering Terms section of the [Service Specific Terms](https://cloud.google.com/terms/service-terms#general-service-terms).
