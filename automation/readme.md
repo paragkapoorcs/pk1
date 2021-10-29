@@ -29,9 +29,7 @@ Integrate Tool Github, Terraform, Google Cloud SDK, Shell, and Composer.
 
 After creating the CDF instance we need to connect to SAP resource. 
 
-Follow the below steps to create and reuse secure macros:
-
-[[https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys]{.ul}](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys)
+To create steps and reuse secure macros, see [Using Secure Keys](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys).
 
 **Step 1:**
 
@@ -63,8 +61,7 @@ Call the secure keys in below format:
 
 ![](.//media/image5.png)
 
-For detailed information you can refer :
-[[https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys]{.ul}](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys)
+For more information, see [Using Secure Keys](https://cdap.atlassian.net/wiki/spaces/DOCS/pages/801767425/Using+Secure+Keys).
 
 **Tenant Project Peering**: You can connect the Cloud Data Fusion Instance to GCS Project.
 
@@ -128,7 +125,7 @@ This folder consists of the following two scripts:
 
     -   Set the name of the pipeline's
 
-    -   Change the path of the json files according to download location
+    -   Change the path of the JSON files according to download location
 
     -   Set the macros as the pipelines
 
