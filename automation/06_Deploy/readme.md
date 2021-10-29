@@ -150,13 +150,13 @@ Set the appropriate username, Project ID, CDF Instance ID, json with
     > path (download at the time of cloning repo) and Macro's for
     > streaming the pipeline
 
-**Step 4:** Run the scripts from the gcloud sdk.
+**Step 4:** Run the scripts from the gcloud SDK.
 
 Files to be validated during the procedure.
 
 1.  deploy.tf
 
-2.  Start.sh
+2.  start.sh
 
 **Actions to be executed:**
 
